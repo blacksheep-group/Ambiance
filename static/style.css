@@ -81,17 +81,18 @@ main{
 .sensor-container{
     display: grid;
     width: 100%;
-    grid-template-columns: 400px 400px 400px;
+    grid-template-columns: 300px 300px 300px;
     justify-content: center; 
     align-items: center;
     gap: 20px;
     margin-top: 0;
-    margin-bottom: 0;    
+    margin-bottom: 0; 
+    margin-left: 20px;   
 }    
 .sensor-data{
     display: flex;
     box-sizing: border-box;
-    padding: 70px;
+    padding: 20px;
     border: 1px solid #000;
     border-radius: 10px;
     background-color: white;
