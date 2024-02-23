@@ -3,39 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="2">
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
     <link rel="shortcut icon" href="{{ url_for('static', filename='assets/pup-logo.svg') }}">
-    <script src="script.js"></script>
-    <link rel="icon" href="assets/pup-logo.svg" type="image/x-icon">  
     <title>Ambiance</title>
 </head>
 <body>
     <header>
-        <div>AMBIANCE</div>
-        <div class="settings"> </div>
-            <img src="assets/settings.svg">
+        <div class="date">12:59 AM  |  AUGUST 15 2024 </div>
+        <div class="title">AMBIANCE</div>
+        <div class="settings"> 
+            <div>PUP MAIN  |</div>
+            <img src="{{ url_for('static', filename='assets/settings.svg') }}">
+        </div>      
     </header>
     <main>  
         <div class="error-message">{{ exception }}</div>  
-        <div class="sensor-container">
-            <div class="sensor-data"><div class="temp"><img src="{{ url_for('static', filename='assets/temperature.svg') }}" alt=""></div>Temperature: {{ temperature }}</div>
-            <div class="sensor-data"><div class="temp"><img src="{{ url_for('static', filename='assets/pressure.svg') }}" alt=""></div>Pressure: {{ pressure }}</div>
-            <div class="sensor-data"><div class="temp"><img src="{{ url_for('static', filename='assets/humidity.svg') }}" alt=""></div>Humidity: {{ humidity }}</div>
-            <div class="sensor-data"><div class="temp"><img src="{{ url_for('static', filename='assets/gas.svg') }}" alt=""></div>Gas: {{ gas }}</div>
-            <div class="sensor-data"><div class="temp"><img src="{{ url_for('static', filename='assets/altitude.svg') }}" alt=""></div>Altitude: {{ altitude }}</div>
-            <div class="sensor-data"><div class="temp"><img src="{{ url_for('static', filename='assets/TVOC.svg') }}" alt=""></div>TVOC: {{ tvoc }}</div>
-            <div class="sensor-data"><div class="temp"><img src="{{ url_for('static', filename='assets/eCO2.svg') }}" alt=""></div>eCO2: {{ eco2 }}</div>
-            <div class="sensor-data"><div class="temp"><img src="{{ url_for('static', filename='assets/raw_H2.svg') }}" alt=""></div>Raw H2: {{ raw_h2 }}</div>
-            <div class="sensor-data"><div class="temp"><img src="{{ url_for('static', filename='assets/raw_Ethanol.svg') }}" alt=""></div>Raw Ethanol: {{ raw_ethanol }}</div>
-                    
+        <div class="content-container">
+            <div class="sensor-container">
+                <div class="sensor-data">
+                        <img src="{{ url_for('static', filename='assets/temperature.svg') }}">
+                        <div class="data-container">
+                            <div class="data-label">TEMPERATURE</div> 
+                            <div class="data-point">{{ temperature }}</div>
+                        </div>
+                </div>
+                <div class="sensor-data"><div class="temp"><img src="{{ url_for('static', filename='assets/pressure.svg') }}" alt=""></div>Pressure: {{ pressure }}</div>
+                <div class="sensor-data"><div class="temp"><img src="{{ url_for('static', filename='assets/humidity.svg') }}" alt=""></div>Humidity: {{ humidity }}</div>
+                <div class="sensor-data"><div class="temp"><img src="{{ url_for('static', filename='assets/gas.svg') }}" alt=""></div>Gas: {{ gas }}</div>
+                <div class="sensor-data"><div class="temp"><img src="{{ url_for('static', filename='assets/altitude.svg') }}" alt=""></div>Altitude: {{ altitude }}</div>
+                <div class="sensor-data"><div class="temp"><img src="{{ url_for('static', filename='assets/TVOC.svg') }}" alt=""></div>TVOC: {{ tvoc }}</div>
+                <div class="sensor-data"><div class="temp"><img src="{{ url_for('static', filename='assets/eCO2.svg') }}" alt=""></div>eCO2: {{ eco2 }}</div>
+                <div class="sensor-data"><div class="temp"><img src="{{ url_for('static', filename='assets/raw_H2.svg') }}" alt=""></div>Raw H2: {{ raw_h2 }}</div>
+                <div class="sensor-data"><div class="temp"><img src="{{ url_for('static', filename='assets/raw_Ethanol.svg') }}" alt=""></div>Raw Ethanol: {{ raw_ethanol }}</div>       
+            </div>
+            <div class="meter-container">
+                <img src="{{ url_for('static', filename='assets/pup-logo.svg') }}">
+            </div>
         </div>
     </main>
-    <div class="slider">
-            <img src="assets/slider.svg">
-    </div>
     <footer>
-        <div>2024 AQMS Prototype</div>
     </footer>
 </body>
 </html>
