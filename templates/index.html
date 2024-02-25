@@ -6,12 +6,13 @@
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
     <link rel="shortcut icon" href="{{ url_for('static', filename='assets/pup-logo.svg') }}">
     <script type="text/javascript" src="{{url_for('static', filename='script.js')}}" defer></script>
+    <script type="text/javascript" src="{{url_for('static', filename='scripts/timedate.js')}}"></script>
     <title>Ambiance</title>
 </head>
 </head>
 <body>
     <header>
-        <div class="date">12:59 AM  |  AUGUST 15 2024 </div>
+        <div id= "timedate" class="date">{{ lol }}</div>
         <div class="title">AMBIANCE</div>
         <div class="settings"> 
             <div>PUP MAIN  |</div>
@@ -89,6 +90,41 @@
                 <img src="{{ url_for('static', filename='assets/pup-logo.svg') }}">
             </div>
         </div>
+
+        <!-- HINDI NAGANA EXTERNAL SCRIPTS IDK WHY -->
+        <script>
+            function formatTimeDate(timedate) {
+                const year = timedate.getFullYear();
+                const monthNames = [
+                    "JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE",
+                    "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"
+                ];
+                const month = monthNames[timedate.getMonth()];
+                const day = String(timedate.getDate());
+                let hours = timedate.getHours();
+                const minutes = String(timedate.getMinutes());
+                const seconds = String(timedate.getSeconds());
+                let ampm = "AM";
+                if (hours >= 12) {
+                    ampm = "PM";
+                    hours %= 12;
+                }
+                if (hours === 0) {
+                    hours = 12; 
+                }
+      
+                return `${hours}:${minutes}:${seconds} ${ampm} | ${month} ${day} ${year}`;
+            }
+      
+              function updateTimeDate() {
+                  const now = new Date();
+                  const formattedTimeDate = formatTimeDate(now);
+                  document.getElementById("timedate").textContent = formattedTimeDate;
+              }
+      
+              updateTimeDate();
+              setInterval(updateTimeDate, 1000);
+          </script>
     </main>
     <footer>
     </footer>
