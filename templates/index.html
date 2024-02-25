@@ -11,15 +11,16 @@
 </head>
 <body>
     <header>
-        <div class="date">12:59 AM  |  AUGUST 15 2024 </div>
         <div class="title">AMBIANCE</div>
         <div class="settings"> 
+            <img src="{{ url_for('static', filename='assets/pup-logo.svg') }}"
+            alt="PUP Logo">
             <div>PUP MAIN  |</div>
             <img src="{{ url_for('static', filename='assets/settings.svg') }}">
         </div>      
     </header>
-    <main>  
-        <div class="error-message">{{ exception }}</div>  
+    <main>   
+        <div class="date">12:59 AM  |  AUGUST 15 2024 </div>
         <div class="content-container">
             <div class="sensor-container">
                 <div class="sensor-data">
@@ -27,7 +28,6 @@
                         <div class="data-container">
                             <div class="data-label">TEMPERATURE</div> 
                             <div class="data-point">{{ temperature }}</div>
-                            <div class="data-update">Last Updated: Now</div>
                         </div>
                 </div>
                 <div class="sensor-data">
@@ -35,7 +35,6 @@
                         <div class="data-container">
                             <div class= "data-label">PRESSURE</div> 
                             <div class= "data-point">{{ pressure }}</div>
-                            <div class="data-update">Last Updated: Now</div>
                         </div>
                 </div>
                 <div class="sensor-data">
@@ -43,7 +42,6 @@
                         <div class="data-container">
                             <div class="data-label">HUMIDITY</div>
                             <div class="data-point">{{ humidity }}</div>
-                            <div class="data-update">Last Updated: Now</div>
                         </div>
                 </div>
                 <div class="sensor-data">
@@ -51,46 +49,80 @@
                         <div class="data-container">
                             <div class="data-label">CARBON EMISSIONS</div>
                             <div class="data-point">{{ gas }}</div>
-                            <div class="data-update">Last Updated: Now</div>
                         </div>
                 </div>
                 <div class="sensor-data">
                         <img src="{{ url_for('static', filename='assets/altitude.svg') }}">
+                        <div class="data-container">
                             <div class="data-label">ALTITUDE</div>
                             <div class="data-point">{{ altitude }}</div>
-                            <div class="data-update">Last Updated: Now</div>
+                        </div>
                 </div>
                 <div class="sensor-data">
                         <img src="{{ url_for('static', filename='assets/TVOC.svg') }}">
+                        <div class="data-container">
                             <div class="data-label">TVOC</div>
                             <div class="data-point">{{ tvoc }}</div>
-                            <div class="data-update">Last Updated: Now</div>
+                        </div>
                 </div>
                 <div class="sensor-data">
                         <img src="{{ url_for('static', filename='assets/eCO2.svg') }}">
+                        <div class="data-container">
                             <div class="data-label">ECO2</div>
                             <div class="data-point">{{ eco2 }}</div>
-                            <div class="data-update">Last Updated: Now</div>
+                        </div>
                 </div>
                 <div class="sensor-data">
                         <img src="{{ url_for('static', filename='assets/raw_H2.svg') }}">
+                        <div class="data-container">
                             <div class="data-label">RAW_H2</div>
                             <div class="data-point">{{ raw_h2 }}</div>
-                            <div class="data-update">Last Updated: Now</div>
+                        </div>
                 </div>
                 <div class="sensor-data">
                         <img src="{{ url_for('static', filename='assets/raw_Ethanol.svg') }}">
+                        <div class="data-container">
                             <div class="data-label">RAW_ETHANOL</div>
                             <div class="data-point">{{ raw_ethanol }}</div>
-                            <div class="data-update">Last Updated: Now</div>
+                        </div>
                 </div>                 
             </div>
             <div class="meter-container">
-                <img src="{{ url_for('static', filename='assets/pup-logo.svg') }}">
+                <div class="ambience_meter">
+                    <p>Ambience Meter</p>
+                    <div class="meter">
+                        <div class="green"></div>
+                        <div class="yellow"></div>
+                        <div class="red"></div>
+                    </div>
+                </div>
+                <div class="safe_meter">
+                    <div class="safe">
+                        <div class="safe_left"></div>
+                        <div class="safe_right"></div>
+                    </div>
+                    <p>Safe</p>
+                </div>
+                <div class="moderate_meter">
+                    <div class="moderate">
+                        <div class="moderate_left"></div>
+                        <div class="moderate_right"></div>
+                    </div>
+                    <p>Moderate</p>
+                </div>
+                <div class="dangerous_meter">
+                    <div class="dangerous">
+                        <div class="dangerous_left"></div>
+                        <div class="dangerous_right"></div>
+                    </div>
+                    <p>Dangerous</p>
+                </div>
             </div>
         </div>
+        <div class="error-message">{{ exception }}</div>  
     </main>
     <footer>
+        <div>CREATED BY: PUP-HYGEARS BATCH 2023-2024</div>
     </footer>
 </body>
 </html>
