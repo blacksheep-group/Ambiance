@@ -13,6 +13,7 @@ function formatTimeDate(timedate) {
     const day = String(timedate.getDate());
     let hours = timedate.getHours();
     const minutes = String(timedate.getMinutes());
+    const seconds = String(timedate.getSeconds());
     let ampm = "AM";
     if (hours >= 12) {
         ampm = "PM";
@@ -22,7 +23,7 @@ function formatTimeDate(timedate) {
         hours = 12; 
     }
 
-    return `${hours}:${minutes} ${ampm} | ${month} ${day} ${year}`;
+    return `${hours}:${minutes}:${seconds} ${ampm} | ${month} ${day} ${year}`;
 }
 
 function updateTimeDate() {
