@@ -135,6 +135,7 @@ main{
     font-family: "Nunito", sans-serif;
     font-size: 20px;
     font-weight: bold;
+    margin-top: 20px;
 }  
 .data-point{
     height: auto;
@@ -142,17 +143,8 @@ main{
     font-family: "Nunito", sans-serif;
     font-weight: bolder;
     font-size: 30px;
-    margin-left: 15px;
-}
-
-.data-update{
-    color: #384A53;
-    font-family: "Nunito", sans-serif;
-    font-size: 10px;
-    font-weight: bold;
-    margin-bottom: 0;
-    margin-left: 20px;
-    
+    margin-left: 0;
+    margin-bottom: 20px;
 }
 
 .meter-container {
