@@ -159,4 +159,14 @@ Ambiance is an air quality monitoring system developed by PUP Hygears for the Po
 5. Upload both the sender and receiver to their respective board.
    
 ## Contributors
-
+- Aldas, Dominic Syd V.
+- Calangian, Mary Joyce F.
+- Clavecillas, Christian C.
+- dela Cruz, Jhon Carlo P.
+- Erosa, Marvin James A.
+- Esoreña, Reily Allen E.
+- Macasindil, Mohammadryan 
+- Madelo, Bryce Christian A. 
+- Palaganas, Zophie Louise O.
+- Teoxon, Mc James R.
+- Tizon, Robie Elliz
