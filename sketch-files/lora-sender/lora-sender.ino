@@ -3,16 +3,17 @@
 
 #define CS      17   // chip select pin 
 #define RST     14   // reset pin
-#define G0      26   // I/O pin
+#define G       26   // I/O pin
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
+  Serial.println("Sending packet...");
   while (!Serial);
-
+   
   Serial.println("LoRa Sender");
 
   // override the default CS, I/O (G0), and reset pins
-  LoRa.setPins(CS, RST, G0);
+  LoRa.setPins(CS, RST, G);
 
   if (!LoRa.begin(433E6)) {   // initialize ratio at 433 MHz
     Serial.println("LoRa init failed. Check your connections.");
