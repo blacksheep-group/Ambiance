@@ -127,7 +127,7 @@ main{
 }
 
 .sensor-data img {
-    height: 70%;
+    height: 70px;
     width: auto;
 }
 .data-label{
@@ -148,7 +148,7 @@ main{
 }
 
 .meter-container {
-    height: 50vh;
+    height: 400px;
     width: 300px;
     background-color: #FFFFFF;
     border: 1px solid black;
