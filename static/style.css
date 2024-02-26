@@ -121,13 +121,13 @@ main{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100%;
-    width: 70%;
+    height: 100px;
+    width: 70px;
     margin-left: 15px;
 }
 
 .sensor-data img {
-    height: 70%;
+    height: 70px;
     width: auto;
 }
 .data-label{
@@ -156,7 +156,7 @@ main{
 }
 
 .meter-container {
-    height: 50vh;
+    height: 400px;
     width: 300px;
     background-color: #FFFFFF;
     border: 1px solid black;
