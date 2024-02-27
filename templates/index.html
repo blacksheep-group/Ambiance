@@ -28,63 +28,63 @@
                         <img src="{{ url_for('static', filename='assets/temperature.svg') }}">
                         <div class="data-container">
                             <div class="data-label">TEMPERATURE</div> 
-                            <div class="data-point">{{ temperature }}</div>
+                            <div class="data-point">{{ temperature }}°C</div>
                         </div>
                 </div>
                 <div class="sensor-data">
                         <img src="{{ url_for('static', filename='assets/pressure.svg') }}">
                         <div class="data-container">
                             <div class= "data-label">PRESSURE</div> 
-                            <div class= "data-point">{{ pressure }}</div>
+                            <div class= "data-point">{{ pressure }} hPa</div>
                         </div>
                 </div>
                 <div class="sensor-data">
                         <img src="{{ url_for('static', filename='assets/humidity.svg') }}">
                         <div class="data-container">
                             <div class="data-label">HUMIDITY</div>
-                            <div class="data-point">{{ humidity }}</div>
+                            <div class="data-point">{{ humidity }}%</div>
                         </div>
                 </div>
                 <div class="sensor-data">
-                        <img src="{{ url_for('static', filename='assets/gas.svg') }}">
+                        <img src="{{ url_for('static', filename='assets/pm1.svg') }}">
                         <div class="data-container">
-                            <div class="data-label">CARBON EMISSIONS</div>
-                            <div class="data-point">{{ gas }}</div>
+                            <div class="data-label">PM 1.0</div>
+                            <div class="data-point">{{ pm_1 }} µg/m³</div>
                         </div>
                 </div>
                 <div class="sensor-data">
-                        <img src="{{ url_for('static', filename='assets/altitude.svg') }}">
+                        <img src="{{ url_for('static', filename='assets/pm2.svg') }}">
                         <div class="data-container">
-                            <div class="data-label">ALTITUDE</div>
-                            <div class="data-point">{{ altitude }}</div>
+                            <div class="data-label">PM 2.5</div>
+                            <div class="data-point">{{ pm_2 }} µg/m³</div>
                         </div>
                 </div>
                 <div class="sensor-data">
-                        <img src="{{ url_for('static', filename='assets/TVOC.svg') }}">
+                        <img src="{{ url_for('static', filename='assets/pm10.svg') }}">
                         <div class="data-container">
-                            <div class="data-label">TVOC</div>
-                            <div class="data-point">{{ tvoc }}</div>
+                            <div class="data-label">PM 10</div>
+                            <div class="data-point">{{ pm_10 }} µg/m³</div>
                         </div>
                 </div>
                 <div class="sensor-data">
                         <img src="{{ url_for('static', filename='assets/eCO2.svg') }}">
                         <div class="data-container">
                             <div class="data-label">ECO2</div>
-                            <div class="data-point">{{ eco2 }}</div>
+                            <div class="data-point">{{ eco2 }} ppm</div>
                         </div>
                 </div>
                 <div class="sensor-data">
-                        <img src="{{ url_for('static', filename='assets/raw_H2.svg') }}">
+                        <img src="{{ url_for('static', filename='assets/gas.svg') }}">
                         <div class="data-container">
-                            <div class="data-label">RAW_H2</div>
-                            <div class="data-point">{{ raw_h2 }}</div>
+                            <div class="data-label">GAS</div>
+                            <div class="data-point">{{ gas }} KOhms</div>
                         </div>
                 </div>
                 <div class="sensor-data">
-                        <img src="{{ url_for('static', filename='assets/raw_Ethanol.svg') }}">
+                        <img src="{{ url_for('static', filename='assets/TVOC.svg') }}">
                         <div class="data-container">
-                            <div class="data-label">RAW_ETHANOL</div>
-                            <div class="data-point">{{ raw_ethanol }}</div>
+                            <div class="data-label">TVOC</div> <!--reduce oversizing padding-->
+                            <div class="data-point">{{ tvoc }} ppb\t</div>
                         </div>
                 </div>                 
             </div>
