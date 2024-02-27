@@ -151,12 +151,22 @@ Ambiance is an air quality monitoring system developed by PUP Hygears for the Po
     | VCC              | VIN                        |
     | GND              | GND                        |
     | MISO             | 19                         |
-    | MOSI             | 21                         |
+    | MOSI             | 23                         |
     | SCK              | 18                         |
     | CS               | 17 (any pin can be used)   |
     | RESET            | 14 (any pin can be used)   |
-    | CS               | 26 (any pin can be used)   |
+    | G0               | 26 (any pin can be used)   |
 5. Upload both the sender and receiver to their respective board.
    
 ## Contributors
-
+- Aldas, Dominic Syd V.
+- Calangian, Mary Joyce F.
+- Clavecillas, Christian C.
+- dela Cruz, Jhon Carlo P.
+- Erosa, Marvin James A.
+- Esoreña, Reily Allen E.
+- Macasindil, Mohammadryan 
+- Madelo, Bryce Christian A. 
+- Palaganas, Zophie Louise O.
+- Teoxon, Mc James R.
+- Tizon, Robie Elliz
