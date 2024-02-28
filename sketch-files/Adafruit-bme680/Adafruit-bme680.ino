@@ -1,41 +1,62 @@
+#include <Wire.h>
 #include <SPI.h>
-#include <LoRa.h>
-//define the pins used by the transceiver module
-#define ss 5
-#define rst 14
-#define dio0 2
-int counter = 0;
+#include <Adafruit_Sensor.h>
+#include "Adafruit_BME680.h"
+
+#define BME_SCK 13
+#define BME_MISO 12
+#define BME_MOSI 11
+#define BME_CS 10
+
+#define SEALEVELPRESSURE_HPA (1013.25)
+
+Adafruit_BME680 bme; // I2C
+//Adafruit_BME680 bme(BME_CS); // hardware SPI
+//Adafruit_BME680 bme(BME_CS, BME_MOSI, BME_MISO,  BME_SCK);
+
 void setup() {
-  //initialize Serial Monitor
-  Serial.begin(115200);
+  Serial.begin(9600);
   while (!Serial);
-  Serial.println("LoRa Sender");
-  //setup LoRa transceiver module
-  LoRa.setPins(ss, rst, dio0);
-  
-  //replace the LoRa.begin(---E-) argument with your location's frequency 
-  //433E6 for Asia
-  //866E6 for Europe
-  //915E6 for North America
-  //865E6 -867E6 For India
-  while (!LoRa.begin(865.0625E6)) {
-    Serial.println(".");
-    delay(500);
+  Serial.println(F("BME680 test"));
+
+  if (!bme.begin()) {
+    Serial.println("Could not find a valid BME680 sensor, check wiring!");
+    while (1);
   }
-   // Change sync word (0xF3) to match the receiver
-  // The sync word assures you don't get LoRa messages from other LoRa transceivers
-  // ranges from 0-0xFF
-  LoRa.setSyncWord(0xF3);
-  Serial.println("LoRa Initializing OK!");
+
+  // Set up oversampling and filter initialization
+  bme.setTemperatureOversampling(BME680_OS_8X);
+  bme.setHumidityOversampling(BME680_OS_2X);
+  bme.setPressureOversampling(BME680_OS_4X);
+  bme.setIIRFilterSize(BME680_FILTER_SIZE_3);
+  bme.setGasHeater(320, 150); // 320*C for 150 ms
 }
+
 void loop() {
-  Serial.print("Sending packet: ");
-  Serial.println(counter);
-  //Send LoRa packet to receiver
-  LoRa.beginPacket();
-  LoRa.print("hello Electronicsinnovation follower");
-  LoRa.print(counter);
-  LoRa.endPacket();
-  counter++;
-  delay(10000);
+  if (! bme.performReading()) {
+    Serial.println("Failed to perform reading :(");
+    return;
+  }
+  Serial.print("Temperature = ");
+  Serial.print(bme.temperature);
+  Serial.println(" *C");
+
+  Serial.print("Pressure = ");
+  Serial.print(bme.pressure / 100.0);
+  Serial.println(" hPa");
+
+  Serial.print("Humidity = ");
+  Serial.print(bme.humidity);
+  Serial.println(" %");
+
+  Serial.print("Gas = ");
+  Serial.print(bme.gas_resistance / 1000.0);
+  Serial.println(" KOhms");
+
+  Serial.print("Approx. Altitude = ");
+  Serial.print(bme.readAltitude(SEALEVELPRESSURE_HPA));
+  Serial.println(" m");
+
+  Serial.println();
+  delay(2000);
 }
