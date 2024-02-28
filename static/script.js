@@ -13,8 +13,8 @@ function formatTimeDate(timedate) {
     const month = monthNames[timedate.getMonth()];
     const day = String(timedate.getDate());
     let hours = timedate.getHours();
-    const minutes = String(timedate.getMinutes());
-    const seconds = String(timedate.getSeconds());
+    const minutes = (timedate.getMinutes()<10)? "0"+String(timedate.getMinutes()):String(timedate.getMinutes());
+    const seconds = (timedate.getSeconds()<10)? "0"+String(timedate.getSeconds()):String(timedate.getSeconds());
     let ampm = "AM";
     if (hours >= 12) {
         ampm = "PM";
