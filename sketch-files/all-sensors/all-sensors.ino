@@ -32,7 +32,6 @@ void setup() {
 
 void loop() {
   Serial.println("location:CONDOTEL");
-  delay(1000);
 }
 
 

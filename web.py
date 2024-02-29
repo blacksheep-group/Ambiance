@@ -7,13 +7,18 @@ app = Flask(__name__)
 @app.route('/')
 
 def index():
-    sensor_data = sensor.sensor_data()
-    return render_template(
-        "index.html",
-        exception=sensor_data['exception'],
-        location=sensor_data['location'],
-        
-        )
+    error = "An error has occurred. Please kindly contact your administrator for further assistance. Error Message: "
+    try:
+        sensor_data = sensor.sensor_data()
+        exception = sensor_data['exception']
+        location = sensor_data['location']
+    except Exception as e:
+        exception = error + str(e)
+        location = "NO LOCATION"
+    
+    return render_template("index.html", 
+    exception=exception, 
+    location=location)
 
 if __name__ == "__main__":
     app.run(debug=False)
