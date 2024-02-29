@@ -20,7 +20,7 @@ void setup() {
   }
   Serial.println("LoRa init succeeded.");
 
-  // use the same value (sync word) as the transmitter
+
   LoRa.setSyncWord(0xF3);
 
 
@@ -29,16 +29,9 @@ void setup() {
 void loop() {
   int packetSize = LoRa.parsePacket();
   if (packetSize) {
-
-    Serial.print("Received packet: ");
-
-
     while (LoRa.available()) {
       String LoRaData = LoRa.readString();
-      Serial.print(LoRaData); 
+      Serial.println(LoRaData); 
     }
- 
-    Serial.print(" with RSSI ");
-    Serial.println(LoRa.packetRssi());
-  }
+   }
 }

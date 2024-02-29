@@ -6,7 +6,7 @@
 #define G       26   // I/O pin
 
 void setup() {
-  Serial.begin(115200);
+  Serial.begin(9600);
   Serial.println("Sending packet...");
   while (!Serial);
    
