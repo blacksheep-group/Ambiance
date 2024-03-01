@@ -1,13 +1,20 @@
 import serial
 def sensor_data():
-    data_dict = {'exception':'', 'location':'NO LOCATION'}
+    data_dict = {'exception':'', 
+    'location':'NO LOCATION',
+    'temperature':'None',
+    'pressure':'None',
+    'humidity':'None',
+    'TVOC':'None',
+    'ECO2':'None'
+    }
     error = "An error has occurred. Please kindly contact your administrator for further assistance. Error Message: "
     try:
-        ser = serial.Serial(port='COM6', baudrate=9600)
+        ser = serial.Serial(port='COM4', baudrate=9600)
         data_dict['exception'] = ''
         raw_data = ser.readline().decode('utf-8').strip()
-        label = raw_data.split(':')
-        data_dict[label[0]] = label[1]
+        data = raw_data.split(':')
+        data_dict[data[0]] = data[1]
     except serial.SerialException as e:
         error = error + str(e)
         data_dict['exception'] = error

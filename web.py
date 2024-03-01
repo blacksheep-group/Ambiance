@@ -12,13 +12,17 @@ def index():
         sensor_data = sensor.sensor_data()
         exception = sensor_data['exception']
         location = sensor_data['location']
+        tvoc = sensor_data['TVOC']
+        eco2= sensor_data['ECO2']
     except Exception as e:
         exception = error + str(e)
         location = "NO LOCATION"
     
     return render_template("index.html", 
     exception=exception, 
-    location=location)
+    location=location,
+    tvoc=tvoc,
+    eco2=eco2)
 
 if __name__ == "__main__":
     app.run(debug=False)
