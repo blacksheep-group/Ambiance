@@ -12,6 +12,10 @@ def index():
         sensor_data = sensor.sensor_data()
         exception = sensor_data['exception']
         location = sensor_data['location']
+        temperature = sensor_data['temperature']
+        pressure = sensor_data['pressure']
+        humidity = sensor_data['humidity']
+        gas = sensor_data['gas']
         tvoc = sensor_data['TVOC']
         eco2= sensor_data['ECO2']
     except Exception as e:
@@ -21,6 +25,10 @@ def index():
     return render_template("index.html", 
     exception=exception, 
     location=location,
+    temperature=temperature,
+    pressure=pressure,
+    humidity=humidity,
+    gas=gas,
     tvoc=tvoc,
     eco2=eco2)
 
