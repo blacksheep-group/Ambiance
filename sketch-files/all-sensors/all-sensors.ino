@@ -3,13 +3,8 @@
 #include <Adafruit_Sensor.h>
 #include "Adafruit_BME680.h"
 #include "Adafruit_SGP30.h"
-#include <SPI.h>
 #include <LoRa.h>
 
-#define BME_SCK 22
-#define BME_MISO 12
-#define BME_MOSI 11
-#define BME_CS 10
 #define CS 17   
 #define RST 14   
 #define G0 26  
@@ -26,29 +21,51 @@ uint32_t getAbsoluteHumidity(float temperature, float humidity) {
 }
 
 void setup() {
-  Serial.begin(9600);
-  while (!Serial) { 
-    delay(10); }
-
-  if (! sgp.begin()){
-    Serial.println("Sensor not found :(");
-    while (1);
+ Serial.begin(9600);
+  while (!Serial) {
+    delay(100);
   }
-
-  Serial.print(sgp.serialnumber[0], HEX);
-  Serial.print(sgp.serialnumber[1], HEX);
-  Serial.println(sgp.serialnumber[2], HEX);
-  
+  if (!bme.begin()) {
+    Serial.println("temperature:None");
+    Serial.println("pressure:None");
+    Serial.println("humidity:None");
+    Serial.println("gas:None");
+    delay(1000); 
+  } 
+  else {
+    // Set up oversampling and filter initialization
+    bme.setTemperatureOversampling(BME680_OS_8X);
+    bme.setHumidityOversampling(BME680_OS_2X);
+    bme.setPressureOversampling(BME680_OS_4X);
+    bme.setIIRFilterSize(BME680_FILTER_SIZE_3);
+    bme.setGasHeater(320, 150); // 320°C for 150 ms
+  }
 }
 
 void loop() {
+  //location
   Serial.println("location:CONDOTEL");
-
-  Serial.print("TVOC:"); 
-  Serial.println(sgp.TVOC);
-  Serial.print("ECO2:"); 
-  Serial.println(sgp.eCO2); 
-
+  //error handling for bme
+  if (! bme.performReading()) {
+    Serial.println("temperature:None");
+    Serial.println("pressure:None");
+    Serial.println("humidity:None");
+    Serial.println("gas:None");
+    return;
+    delay(1000);
+  }
+  //temperature
+  Serial.print("temperature:");
+  Serial.println(bme.temperature);
+  //pressure
+  Serial.print("pressure:");
+  Serial.println(bme.pressure / 100.0);
+  //humidity
+  Serial.print("humidity:");
+  Serial.println(bme.humidity);
+  //BVOC
+  Serial.print("gas:");
+  Serial.println(bme.gas_resistance / 1000.0);
 
   delay(1000);
 }
