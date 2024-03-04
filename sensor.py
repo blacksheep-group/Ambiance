@@ -18,10 +18,10 @@ def sensor_data():
     error = "An error has occurred. Please kindly contact your administrator for further assistance. Error Message: "
     
     try:
-        ser = serial.Serial(port='COM4', baudrate=9600)
+        ser = serial.Serial(port='COM3', baudrate=9600)
         data_dict['exception'] = ''
         
-        for key in range(6):
+        for key in range(7):
             raw_data = ser.readline().decode('utf-8').strip()
             data = raw_data.split(':')
             data_dict[data[0]] = data[1]
