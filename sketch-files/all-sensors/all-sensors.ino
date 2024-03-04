@@ -32,6 +32,9 @@ void setup() {
     Serial.println("gas:None");
     delay(1000); 
   } 
+  if (! sgp.begin()){
+    Serial.println("Sensor not found :(");
+  }
   else {
     // Set up oversampling and filter initialization
     bme.setTemperatureOversampling(BME680_OS_8X);
@@ -39,6 +42,8 @@ void setup() {
     bme.setPressureOversampling(BME680_OS_4X);
     bme.setIIRFilterSize(BME680_FILTER_SIZE_3);
     bme.setGasHeater(320, 150); // 320°C for 150 ms
+
+
   }
 }
 
@@ -51,6 +56,12 @@ void loop() {
     Serial.println("pressure:None");
     Serial.println("humidity:None");
     Serial.println("gas:None");
+    return;
+    delay(1000);
+  }
+  if (! sgp.IAQmeasure()) {
+    Serial.println("tvoc:None");
+    Serial.println("eco2:None");
     return;
     delay(1000);
   }
@@ -67,6 +78,10 @@ void loop() {
   Serial.print("gas:");
   Serial.println(bme.gas_resistance / 1000.0);
 
+  Serial.print("tvoc:"); 
+  Serial.println(sgp.TVOC);
+  Serial.print("eco2:"); 
+  Serial.println(sgp.eCO2); 
   delay(1000);
 }
 

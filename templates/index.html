@@ -29,7 +29,7 @@
                         <img src="{{ url_for('static', filename='assets/temperature.svg') }}">
                         <div class="data-container">
                             <div class="data-label">TEMPERATURE</div> 
-                            <div class="data-point">{{ temperature }} °C</div>
+                            <div id="tempID" class="data-point">{{ temperature }} °C</div>
                         </div>
                 </div>
                 <div class="sensor-data">
@@ -50,21 +50,21 @@
                         <img src="{{ url_for('static', filename='assets/pm1.svg') }}">
                         <div class="data-container">
                             <div class="data-label">PM 1.0</div>
-                            <div class="data-point">{{ pm_1 }} µg/m³</div>
+                            <div class="data-point">{{ pm1 }} µg/m³</div>
                         </div>
                 </div>
                 <div class="sensor-data">
                         <img src="{{ url_for('static', filename='assets/pm2.svg') }}">
                         <div class="data-container">
                             <div class="data-label">PM 2.5</div>
-                            <div class="data-point">{{ pm_2 }} µg/m³</div>
+                            <div class="data-point">{{ pm2 }} µg/m³</div>
                         </div>
                 </div>
                 <div class="sensor-data">
                         <img src="{{ url_for('static', filename='assets/pm10.svg') }}">
                         <div class="data-container">
                             <div class="data-label">PM 10</div>
-                            <div class="data-point">{{ pm_10 }} µg/m³</div>
+                            <div class="data-point">{{ pm10 }} µg/m³</div>
                         </div>
                 </div>
                 <div class="sensor-data">

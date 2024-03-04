@@ -15,9 +15,12 @@ def index():
         temperature = sensor_data['temperature']
         pressure = sensor_data['pressure']
         humidity = sensor_data['humidity']
+        pm1 = sensor_data['pm1']
+        pm2 = sensor_data['pm2']
+        pm10 = sensor_data['pm10']
         gas = sensor_data['gas']
-        tvoc = sensor_data['TVOC']
-        eco2= sensor_data['ECO2']
+        tvoc = sensor_data['tvoc']
+        eco2= sensor_data['eco2']
     except Exception as e:
         exception = error + str(e)
         location = "NO LOCATION"
@@ -28,6 +31,9 @@ def index():
     temperature=temperature,
     pressure=pressure,
     humidity=humidity,
+    pm1=pm1,
+    pm2=pm2,
+    pm10=pm10,
     gas=gas,
     tvoc=tvoc,
     eco2=eco2)
