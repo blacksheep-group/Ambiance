@@ -16,13 +16,13 @@
         <div class="settings"> 
             <img src="{{ url_for('static', filename='assets/pup-logo.svg') }}"
             alt="PUP Logo">
-            <div>{{ location }}  |</div>
+            <div id="location">{{ location }}  |</div>
             <img src="{{ url_for('static', filename='assets/settings.svg') }}">
         </div>      
     </header>
     <main>   
         <div id="timedate" class="date">{{ now }}</div>
-        <div class="error-message">{{ exception }}</div> 
+        <div class="error-message" id="errorValue">{{ exception }}</div> 
         <div class="content-container">
             <div class="sensor-container">
                 <div class="sensor-data">

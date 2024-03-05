@@ -40,6 +40,12 @@ function updateSensorValues() {
     fetch('/sensor_data')
       .then(response => response.json())
       .then(data => {
+        var exception = data.exception;
+        document.getElementById("errorValue").textContent = exception;
+
+        var location = data.location;
+        document.getElementById("location").textContent = location + " |";
+
         var temperature = data.temperature;
         document.getElementById("temperatureValue").textContent = temperature + " °C";
 
@@ -59,7 +65,7 @@ function updateSensorValues() {
         document.getElementById("pm10Value").textContent = pm10 + " µg/m³";
 
         var gas = data.gas;
-        document.getElementById("gasValue").textContent = gas + " KOhms";
+        document.getElementById("gasValue").textContent = gas + " kΩ";
 
         var tvoc = data.tvoc;
         document.getElementById("tvocValue").textContent = tvoc + " ppb/t";
