@@ -72,24 +72,24 @@ Ambiance is an air quality monitoring system developed by PUP Hygears for the Po
     For all the sensors:
 
     ```
-    cd \Ambiance\sketch-files\all-sensors
+    cd \ambiance\sketch-files\all-sensors
     ```
     For the Adafruit BME680 sensor:
     ```
-    cd \Ambiance\sketch-files\adafruit-bme680
+    cd \ambiance\sketch-files\adafruit-bme680
     ```
     For the Adafruit SGP30 sensor:
     ```
-    cd \Ambiance\sketch-files\adafruit-sgp30
+    cd \ambiance\sketch-files\adafruit-sgp30
     ```
     For the Plantower PMS7003sensor:
     ```
-    cd \Ambiance\sketch-files\plantower-pms7003
+    cd \ambiance\sketch-files\plantower-pms7003
     ```
 3. Open the .ino file for the chosen sensor:
 
     ```
-    cd \Ambiance\sketch-files\
+    cd \ambiance\sketch-files\
     ```
 4. Install project dependencies using Library Manager:
 
@@ -127,18 +127,18 @@ Ambiance is an air quality monitoring system developed by PUP Hygears for the Po
 2. Navigate to sketch-files folder:
 
     ```
-    cd \Ambiance\sketch-files
+    cd \ambiance\sketch-files
     ```
 3. Open the .ino file for both sender and receiver.
     
     For Sender:
 
     ```
-    cd \Ambiance\sketch-files\lora-sender
+    cd \ambiance\sketch-files\lora-sender
     ```
     For Receiver:
     ```
-    cd \Ambiance\sketch-files\lora-receiver
+    cd \ambiance\sketch-files\lora-receiver
     ```
 
 4. Install project dependencies using Library Manager
@@ -157,11 +157,40 @@ Ambiance is an air quality monitoring system developed by PUP Hygears for the Po
     | RESET            | 14 (any pin can be used)   |
     | G0               | 26 (any pin can be used)   |
 5. Upload both the sender and receiver to their respective board.
+
+## Raspberry Pi Initialization
+1. Enable Serial Port in the Raspberry Pi Configuration:
+    ```
+    start > Preferences > Raspberry Pi Configuration > Interfaces
+    ```
+2. Restart the Raspberry Pi.
+3. Clone the project repository from GitHub:	
+    ```
+    git clone https://github.com/marvinjameserosa/ambiance.git  
+    ```
+4. Navigate to the repository folder:
+    ```
+    cd ./ambiance
+    ```
+5. Connect the receiver to the Raspberry Pi
+6. Check the corresponding serial port using the command line:
+    ```
+    python -m serial.tools.minterm 
+    ```
+7. In the sensor.py change the constant PORT to the corresponding serial port.
+    ```
+    PORT = '/dev/ttyACM0' 
+    ```
+9. Run the web.py.
+    ```
+    python3 web.py 
+    ```
    
 ## Contributors
 - Aldas, Dominic Syd V.
 - Calangian, Mary Joyce F.
 - Clavecillas, Christian C.
+- Dacuan, David III
 - dela Cruz, Jhon Carlo P.
 - Erosa, Marvin James A.
 - Esoreña, Reily Allen E.

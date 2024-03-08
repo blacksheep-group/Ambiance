@@ -75,15 +75,16 @@ function updateSensorValues() {
       })
       .catch(error => {
         console.error('Error fetching sensor data:', error);
-        document.getElementById("temperatureValue").textContent = "Error fetching data";
-        document.getElementById("pressureValue").textContent = "Error fetching data";
-        document.getElementById("humidityValue").textContent = "Error fetching data";
-        document.getElementById("pm1Value").textContent = "Error fetching data";
-        document.getElementById("pm2Value").textContent = "Error fetching data";
-        document.getElementById("pm10Value").textContent = "Error fetching data";
-        document.getElementById("gasValue").textContent = "Error fetching data";
-        document.getElementById("tvocValue").textContent = "Error fetching data";
-        document.getElementById("eco2Value").textContent = "Error fetching data";
+        document.getElementById("errorValue").textContent = "An error has occurred. Please kindly contact your administrator for further assistance. Error Message", error;
+        document.getElementById("temperatureValue").textContent = "None";
+        document.getElementById("pressureValue").textContent = "None";
+        document.getElementById("humidityValue").textContent = "None";
+        document.getElementById("pm1Value").textContent = "None";
+        document.getElementById("pm2Value").textContent = "None";
+        document.getElementById("pm10Value").textContent = "None";
+        document.getElementById("gasValue").textContent = "None";
+        document.getElementById("tvocValue").textContent = "None";
+        document.getElementById("eco2Value").textContent = "None";
       });
   }
 

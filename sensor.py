@@ -1,6 +1,8 @@
 import serial
 
 def sensor_data():
+    PORT = 'COM6' # Change this to the corresponding serial port
+    BAUDRATE = 9600 # Change this to what baudrate you require
     data_dict = {
         'exception':'',
         'location':'NO LOCATION',
@@ -18,7 +20,7 @@ def sensor_data():
     error = "An error has occurred. Please kindly contact your administrator for further assistance. Error Message: "
     
     try:
-        ser = serial.Serial(port='COM6', baudrate=9600)
+        ser = serial.Serial(port=PORT, baudrate=BAUDRATE)
         data_dict['exception'] = ''
         
         for key in range(7):
