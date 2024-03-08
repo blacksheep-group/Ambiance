@@ -1,13 +1,15 @@
 #include <SPI.h>
 #include <LoRa.h>
+#include "Adafruit_BME680.h"
 
-#define CS      17   // chip select pin 
-#define RST     14   // reset pin
-#define G       26   // I/O pin
+#define CS 17   // chip select pin 
+#define RST 14   // reset pin
+#define G 26   // I/O pin
+
 
 void setup() {
   Serial.begin(9600);
-  Serial.println("Sending packet...");
+
   while (!Serial);
    
   Serial.println("LoRa Sender");
