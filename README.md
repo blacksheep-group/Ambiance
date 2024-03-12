@@ -175,7 +175,7 @@ Ambiance is an air quality monitoring system developed by PUP Hygears for the Po
 5. Connect the receiver to the Raspberry Pi
 6. Check the corresponding serial port using the command line:
     ```
-    python -m serial.tools.minterm 
+    python -m serial.tools.miniterm 
     ```
 7. In the sensor.py change the constant PORT to the corresponding serial port.
     ```
