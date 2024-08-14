@@ -41,19 +41,26 @@ Ambiance is an air quality monitoring system developed by PUP Hygears for the Po
     ```
     https://www.python.org/downloads
     ```
-3. Install project dependencies:
+3. Create and activate virtual environment:
 
-    For web app interface:
+    To Initialize:
     ```
-    pip install flask
+    python -m venv <folder-name>
     ```
-
-    For recieving the data:
+    To Activate:
     ```
-    pip install pyserial
+    <folder-name>\Scripts\activate.bat
     ```
-
-4. Start the development server:
+    Example: 
+    ```
+    python -m venv venv
+    venv\Scripts\activate.bat
+    ```
+4. Install project dependencies:
+    ```
+    pip install -r .\requirements.txt
+    ``` 
+5. Start the development server:
 
    ```
    python3 web.py
