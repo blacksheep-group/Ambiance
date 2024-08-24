@@ -2,7 +2,7 @@
 #include <Adafruit_Sensor.h>
 #include <Adafruit_BME680.h>
 
-// Define the BME680Sensor class
+
 class BME680Sensor {
 public:
   BME680Sensor() : initialized(false) {}
@@ -37,7 +37,7 @@ public:
     Serial.println("°C");
 
     Serial.print("pressure:");
-    Serial.print(bme.pressure / 100.0); // Convert Pa to hPa
+    Serial.print(bme.pressure / 100.0); 
     Serial.println("hPa");
 
     Serial.print("humidity:");
@@ -45,7 +45,7 @@ public:
     Serial.println("%");
 
     Serial.print("gas:");
-    Serial.print(bme.gas_resistance / 1000.0); // Convert ohms to kOhms
+    Serial.print(bme.gas_resistance / 1000.0); 
     Serial.println("kOhms");
   }
 
