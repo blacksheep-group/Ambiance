@@ -123,8 +123,8 @@ Ambiance is an air quality monitoring system developed by PUP Hygears for the Po
     |                      | TX               | RX                   |
     | Sparkfun SPS30       | RED              | VIN                  |
     |                      | BLACK            | GND                  |
-    |                      | YELLOW (SCL)     | 22                   |
-    |                      | BLUE (SDA)       | RX                   |                       
+    |                      | PURPLE (SCL)     | 22                   |
+    |                      | WHITE (SDA)      | 21                   |                       
   
 7. Upload the chosen code on to the board.
 
