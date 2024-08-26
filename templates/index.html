@@ -14,14 +14,12 @@
     <header>
         <div class="title">AMBIANCE</div>
         <div class="settings"> 
-            <img src="{{ url_for('static', filename='assets/pup-logo.svg') }}"
-            alt="PUP Logo">
+            <div id="timedate" class="date">{{ now }}</div>
             <div id="location">{{ location }}  |</div>
             <img src="{{ url_for('static', filename='assets/settings.svg') }}">
         </div>      
     </header>
     <main>   
-        <div id="timedate" class="date">{{ now }}</div>
         <div class="error-message" id="errorValue">{{ exception }}</div> 
         <div class="content-container">
             <div class="sensor-container">
@@ -89,42 +87,14 @@
                         </div>
                 </div>                 
             </div>
-            <div class="meter-container">
-                <div class="ambience_meter">
-                    <p>Ambience Meter</p>
-                    <div class="meter">
-                        <div class="green"></div>
-                        <div class="yellow"></div>
-                        <div class="red"></div>
-                    </div>
-                </div>
-                <div class="safe_meter">
-                    <div class="safe">
-                        <div class="safe_left"></div>
-                        <div class="safe_right"></div>
-                    </div>
-                    <p>Safe</p>
-                </div>
-                <div class="moderate_meter">
-                    <div class="moderate">
-                        <div class="moderate_left"></div>
-                        <div class="moderate_right"></div>
-                    </div>
-                    <p>Moderate</p>
-                </div>
-                <div class="dangerous_meter">
-                    <div class="dangerous">
-                        <div class="dangerous_left"></div>
-                        <div class="dangerous_right"></div>
-                    </div>
-                    <p>Dangerous</p>
-                </div>
-            </div>
+           
         </div>
         
     </main>
     <footer>
         <div>CREATED BY: PUP-HYGEARS BATCH 2023-2024</div>
+        <img src="{{ url_for('static', filename='assets/pup-logo.svg') }}"
+            alt="PUP Logo">
     </footer>
 </body>
 </html>
