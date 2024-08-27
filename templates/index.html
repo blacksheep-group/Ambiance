@@ -24,66 +24,102 @@
         <div class="content-container">
             <div class="sensor-container">
                 <div class="sensor-data">
-                        <img src="{{ url_for('static', filename='assets/temperature.svg') }}">
-                        <div class="data-container">
-                            <div class="data-label">TEMPERATURE</div> 
-                            <div id="temperatureValue" class="data-point">{{ temperature }}</div>
+                        <div class="data">
+                            <img src="{{ url_for('static', filename='assets/temperature.svg') }}">
+                            <div class="data-container">
+                                <div class="data-label">TEMPERATURE</div> 
+                                <div id="temperatureValue" class="data-point">{{ temperature }}</div>
+                            </div>
+                        </div>
+                        <div class="graph">
                         </div>
                 </div>
                 <div class="sensor-data">
-                        <img src="{{ url_for('static', filename='assets/pressure.svg') }}">
-                        <div class="data-container">
-                            <div class= "data-label">PRESSURE</div> 
-                            <div id="pressureValue" class= "data-point">{{ pressure }}</div>
+                        <div class="data">
+                            <img src="{{ url_for('static', filename='assets/pressure.svg') }}">
+                            <div class="data-container">
+                                <div class= "data-label">PRESSURE</div> 
+                                <div id="pressureValue" class= "data-point">{{ pressure }}</div>
+                            </div>
+                        </div>
+                        <div class="graph">
                         </div>
                 </div>
                 <div class="sensor-data">
-                        <img src="{{ url_for('static', filename='assets/humidity.svg') }}">
-                        <div class="data-container">
-                            <div class="data-label">HUMIDITY</div>
-                            <div id="humidityValue" class="data-point">{{ humidity }}</div>
+                        <div class="data">
+                            <img src="{{ url_for('static', filename='assets/humidity.svg') }}">
+                            <div class="data-container">
+                                <div class="data-label">HUMIDITY</div>
+                                <div id="humidityValue" class="data-point">{{ humidity }}</div>
+                            </div>
+                        </div>
+                        <div class="graph">
                         </div>
                 </div>
                 <div class="sensor-data">
-                        <img src="{{ url_for('static', filename='assets/pm1.svg') }}">
-                        <div class="data-container">
-                            <div class="data-label">PM 1.0</div>
-                            <div id="pm1Value" class="data-point">{{ pm1 }}</div>
+                        <div class="data">
+                            <img src="{{ url_for('static', filename='assets/pm1.svg') }}">
+                            <div class="data-container">
+                                <div class="data-label">PM 1.0</div>
+                                <div id="pm1Value" class="data-point">{{ pm1 }}</div>
+                            </div>
+                        </div>
+                        <div class="graph">
                         </div>
                 </div>
                 <div class="sensor-data">
-                        <img src="{{ url_for('static', filename='assets/pm2.svg') }}">
-                        <div class="data-container">
-                            <div class="data-label">PM 2.5</div>
-                            <div id="pm2Value" class="data-point">{{ pm2 }}</div>
+                        <div class="data">
+                            <img src="{{ url_for('static', filename='assets/pm2.svg') }}">
+                            <div class="data-container">
+                                <div class="data-label">PM 2.5</div>
+                                <div id="pm2Value" class="data-point">{{ pm2 }}</div>
+                            </div>
+                        </div>
+                        <div class="graph">
                         </div>
                 </div>
                 <div class="sensor-data">
-                        <img src="{{ url_for('static', filename='assets/pm10.svg') }}">
-                        <div class="data-container">
-                            <div class="data-label">PM 10</div>
-                            <div id="pm10Value" class="data-point">{{ pm10 }}</div>
+                        <div class="data">
+                            <img src="{{ url_for('static', filename='assets/pm10.svg') }}">
+                            <div class="data-container">
+                                <div class="data-label">PM 10</div>
+                                <div id="pm10Value" class="data-point">{{ pm10 }}</div>
+                            </div>
+                        </div>
+                        <div class="graph">
                         </div>
                 </div>
                 <div class="sensor-data">
-                        <img src="{{ url_for('static', filename='assets/eCO2.svg') }}">
-                        <div class="data-container">
-                            <div class="data-label">ECO2</div>
-                            <div id="eco2Value" class="data-point">{{ eco2 }}</div>
+                        <div class="data">
+                            <img src="{{ url_for('static', filename='assets/eCO2.svg') }}">
+                            <div class="data-container">
+                                <div class="data-label">ECO2</div>
+                                <div id="eco2Value" class="data-point">{{ eco2 }}</div>
+                            </div>
+                        </div>
+                        <div class="graph">
                         </div>
                 </div>
                 <div class="sensor-data">
-                        <img src="{{ url_for('static', filename='assets/gas.svg') }}">
-                        <div class="data-container">
-                            <div class="data-label">GAS</div>
-                            <div id="gasValue" class="data-point">{{ gas }}</div>
+                        <div class="data">
+                            <img src="{{ url_for('static', filename='assets/gas.svg') }}">
+                            <div class="data-container">
+                                <div class="data-label">GAS</div>
+                                <div id="gasValue" class="data-point">{{ gas }}</div>
+                            </div>
+                        </div>
+                        <div class="graph">
                         </div>
                 </div>
                 <div class="sensor-data">
-                        <img src="{{ url_for('static', filename='assets/TVOC.svg') }}">
-                        <div class="data-container">
-                            <div class="data-label">TVOC</div> <!--reduce oversizing padding-->
-                            <div id="tvocValue" class="data-point">{{ tvoc }}</div>
+                        <div class="data">
+                            <img src="{{ url_for('static', filename='assets/TVOC.svg') }}">
+                            <div class="data-container">
+                                <div class="data-label">TVOC</div> <!--reduce oversizing padding-->
+                                <div id="tvocValue" class="data-point">{{ tvoc }}</div>
+                            </div>
+                        </div>
+                        <div class="graph">
                         </div>
                 </div>                 
             </div>
@@ -93,8 +129,10 @@
     </main>
     <footer>
         <div>CREATED BY: PUP-HYGEARS BATCH 2023-2024</div>
-        <img src="{{ url_for('static', filename='assets/pup-logo.svg') }}"
-            alt="PUP Logo">
+        <img 
+        class="puplogo"
+        src="{{ url_for('static', filename='assets/pup-logo.svg') }}"
+        alt="PUP Logo">
     </footer>
 </body>
 </html>
