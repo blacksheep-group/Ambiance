@@ -37,6 +37,7 @@ Adafruit_BME680 bme; // I2C
 // Adafruit_BME680 bme(BME_CS, BME_MOSI, BME_MISO,  BME_SCK);
 
 
+<<<<<<< Updated upstream
 uint32_t getAbsoluteHumidity(float temperature, float humidity) {
     // approximation formula from Sensirion SGP30 Driver Integration chapter 3.15
     const float absoluteHumidity = 216.7f * ((humidity / 100.0f) * 6.112f * exp((17.62f * temperature) / (243.12f + temperature)) / (273.15f + temperature)); // [g/m^3]
@@ -65,6 +66,61 @@ void setup() {
   if (! sgp.begin()){
    // Serial.println("Sensor not found :(");
     while (1);
+=======
+Adafruit_BME680 bme;
+bool initialized;
+
+int baud = 9600;
+int ms = 1000;
+
+bool begin() {
+  if (!bme.begin()) {
+    Serial.println("exception:Failed to initialize BME680 sensor.");
+    return false;
+  }
+  bme.setTemperatureOversampling(BME680_OS_8X);
+  bme.setHumidityOversampling(BME680_OS_2X);
+  bme.setPressureOversampling(BME680_OS_4X);
+  bme.setIIRFilterSize(BME680_FILTER_SIZE_3);
+  bme.setGasHeater(320, 150); 
+  initialized = true;
+  return true;
+}
+
+void readSensor() {
+  if (!initialized) {
+    Serial.println("exception:Failed to initialize BME680 sensor.");
+    return;
+  }
+
+  if (!bme.performReading()) {
+    Serial.println("exception:BME680 sensor failed to perform sensor reading.");
+    return;
+  }
+
+  Serial.println("exception:None");
+
+  Serial.print("temperature:");
+  Serial.println(bme.temperature);
+
+  Serial.print("pressure:");
+  Serial.println(bme.pressure / 100.0); 
+
+  Serial.print("humidity:");
+  Serial.println(bme.humidity);
+
+  Serial.print("gas:");
+  Serial.println(bme.gas_resistance / 1000.0); 
+}
+
+void setup() {
+  Serial.begin(baud);
+  while (!Serial) {
+    delay(ms); 
+  }
+  while (!begin()) {
+    delay(ms); 
+>>>>>>> Stashed changes
   }
   //Serial.print("Found SGP30 serial #");
   //Serial.print(sgp.serialnumber[0], HEX);
@@ -94,6 +150,7 @@ int counter = 0;
 
 
 void loop() {
+<<<<<<< Updated upstream
   if (! bme.performReading()) {
     //Serial.println("Failed to perform reading :(");
     return;
@@ -191,3 +248,9 @@ u8g2.print("eCO2: "+eco2+" ppm");	// write something to the internal memory
 
 
 }
+=======
+  Serial.println("location:PUP-Manila");
+  readSensor();
+  delay(ms); 
+}
+>>>>>>> Stashed changes
