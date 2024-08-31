@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
     <link rel="shortcut icon" href="{{ url_for('static', filename='assets/pup-logo.svg') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
     <script type="text/javascript" src="{{url_for('static', filename='script.js')}}" defer></script>
     <script type="text/javascript" src="{{url_for('static', filename='date-time.js')}}"></script>
     <title>Ambiance</title>
@@ -31,8 +32,31 @@
                                 <div id="temperatureValue" class="data-point">{{ temperature }}</div>
                             </div>
                         </div>
-                        <div class="graph">
-                        </div>
+                        <canvas class="graph "id="myChart"></canvas>
+                          <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                          
+                          <script>
+                            const ctx = document.getElementById('myChart');
+                          
+                            new Chart(ctx, {
+                              type: 'bar',
+                              data: {
+                                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                                datasets: [{
+                                  label: '# of Votes',
+                                  data: [12, 19, 3, 5, 2, 3],
+                                  borderWidth: 1
+                                }]
+                              },
+                              options: {
+                                scales: {
+                                  y: {
+                                    beginAtZero: true
+                                  }
+                                }
+                              }
+                            });
+                          </script>	
                 </div>
                 <div class="sensor-data">
                         <div class="data">
