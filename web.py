@@ -9,8 +9,8 @@ def index():
 
 @app.route('/sensor_data')
 def get_sensor_data():
-    sensor_data = sensor.sensor_data()
-    return jsonify(sensor_data)
+    data = sensor.data_dict
+    return jsonify(data)
 
 if __name__ == "__main__":
     app.run(debug=False)

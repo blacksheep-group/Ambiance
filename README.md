@@ -1,3 +1,5 @@
+
+
 # Ambiance
 
 
@@ -121,9 +123,12 @@ Ambiance is an air quality monitoring system developed by PUP Hygears for the Po
     |                      | GND              | GND                  |
     |                      | RX               | TX                   |
     |                      | TX               | RX                   |
-                            
+    | Sparkfun SPS30       | RED              | VIN                  |
+    |                      | BLACK            | GND                  |
+    |                      | PURPLE (SCL)     | 22                   |
+    |                      | WHITE (SDA)      | 21                   |                       
   
-6. Upload the chosen code on to the board.
+7. Upload the chosen code on to the board.
 
 ## LoRa Initializaation
 1. Clone the project repository from GitHub:	
