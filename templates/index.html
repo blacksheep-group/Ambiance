@@ -6,9 +6,10 @@
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
     <link rel="shortcut icon" href="{{ url_for('static', filename='assets/pup-logo.svg') }}">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+    <!--script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script-->
     <script type="text/javascript" src="{{url_for('static', filename='script.js')}}" defer></script>
-    <script type="text/javascript" src="{{url_for('static', filename='chartHandler.js')}}" defer></script>
-    <script src="https://d3js.org/d3.v7.min.js" defer></script>
+    <script type="text/javascript" src="{{url_for('static', filename='chartHandler2.js')}}" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
     <!--script type="text/javascript" src="{{url_for('static', filename='date-time.js')}}"></script-->
     <title>Ambiance</title>
 </head>
@@ -23,7 +24,6 @@
         </div>      
     </header>
     <main>   
-
         <div class="error-message" id="errorValue">{{ exception }}</div> 
         <div class="content-container">
             <div class="sensor-container">
@@ -35,31 +35,13 @@
                                 <div id="temperatureValue" class="data-point">{{ temperature }}</div>
                             </div>
                         </div>
-                        <canvas class="graph "id="myChart"></canvas>
                           <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                        
                           
                           <script>
-                            const ctx = document.getElementById('myChart');
-                          
-                            new Chart(ctx, {
-                              type: 'bar',
                               data: {
-                                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-                                datasets: [{
-                                  label: '# of Votes',
-                                  data: [12, 19, 3, 5, 2, 3],
-                                  borderWidth: 1
-                                }]
-                              },
-                              options: {
-                                scales: {
-                                  y: {
-                                    beginAtZero: true
-                                  }
-                                }
-                              }
-                            });
-                          </script>	
+                            
+                          </script> 
                 </div>
                 <div class="sensor-data">
                         <div class="data">
@@ -152,7 +134,6 @@
             </div>
            
         </div>
-         <svg id="line-chart" width="600" height="400"></svg>
         
     </main>
     <footer>

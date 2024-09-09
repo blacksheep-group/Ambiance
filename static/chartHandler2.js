@@ -14,8 +14,7 @@ function processData(csvData) {
             timeSeen[time] = true;
             dataPoints.push({
                 time: fields[2].split(' ')[1],
-                time0: fields[2].split(' ')[1],
-                readings: fields.slice(-9),
+                readings: fields.slice(-9).map(item=>item.replace(/[^\d.]/g, '')),
                 index: index
 
             });
@@ -31,8 +30,7 @@ function processData(csvData) {
             timeSeen[timesub1] = true;
             dataPoints.push({
                 time: timesub1,
-                time0: fields[2].split(' ')[1],
-                readings: fields.slice(-9),
+                readings: fields.slice(-9).map(item=>item.replace(/[^\d.]/g, '')),
                 index: index
             });
         }
@@ -42,18 +40,34 @@ function processData(csvData) {
 }
 
 function getData(){
-	fetch('/static/data.csv')
+	return fetch('/static/data.csv')
         .then(response => response.text())
         .then(csvData => {
             const parsedData = processData(csvData);
             //updateChart(parsedData);
-            data = parsedData
-            console.log(data)
+           return parsedData;
         })
         .catch(error => console.error('Error loading CSV:', error));
 }
 
 function drawChart(){
-	getData();
+    const ctx = document.getElementById('myChart').getContext('2d');
+    (async () => {
+        plotables = await getData();
 
+        mychart = new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: plotables.map(item=>item.time).reverse(),
+            datasets: [{
+              label: '# of Votes',
+              data: plotables.map(item=>parseFloat(item.readings[0])).reverse(),
+              borderWidth: 1
+            }]
+          },
+          options: {
+            
+          }
+        });
+    })();
 }
