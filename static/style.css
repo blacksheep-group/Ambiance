@@ -163,7 +163,7 @@ main{
 .sensor-data > .graph {
     height: 70%;
     width: 80%;
-    background-color: gray;
+    //background-color: gray;
 }
 
 .meter-container {
@@ -391,4 +391,44 @@ footer div {
 .puplogo {
     width: 24px;
     margin-right: 1%;
+}
+
+.graph{
+    height:100%;
+    width: 100%;
+    background: none !important;
+}
+
+#line-chart {
+    border: none;
+    background-color: white;
+    height: 100%;
+    width: auto;
+}
+.chart-grid{
+    line {
+        stroke: lightgray;
+        stroke-opacity: 0.7;
+        shape-rendering: crispEdges;
+    }
+
+    path {
+        display: none;
+    }
+} 
+
+.x-axis path,
+.y-axis path {
+    stroke: black;
+}
+
+.x-axis line,
+.y-axis line {
+    stroke: black;
+}
+
+.x-label,
+.y-label {
+    font-size: 12px;
+    fill: black;
 }
