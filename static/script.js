@@ -128,4 +128,5 @@ updateSensorValues();
 setInterval(()=>{
     updateSensorValues();
     drawChart();
+    drawChart(toDraw);
 }, 1000);

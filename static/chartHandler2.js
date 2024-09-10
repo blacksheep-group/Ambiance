@@ -1,33 +1,39 @@
 function processData(csvData) {
-    const lines = csvData.split('\n').reverse();
+    const lines = csvData.split('\n').slice(-11,-1);
     const dataPoints = [];
     const timeSeen = {};
     let lastTime = lines
 
-    lines.some((line, index) => {
-        if (index > 9) return true; // Skip header
+    lines.forEach((line, index) => {
         const fields = line.split(',');
         const time = fields[2].split(' ')[1]; // Get only the time part
         
         // Check if the time exists
         if (!timeSeen[time]) {
             timeSeen[time] = true;
-            dataPoints.push({
-                time: fields[2].split(' ')[1],
-                readings: fields.slice(-9).map(item=>item.replace(/[^\d.]/g, '')),
-                index: index
+            const hour = parseInt(time.split(':')[0])
 
+            dataPoints.push({
+                time: hour == 0 ? '12'+time.slice(2)+' AM':
+                              hour == 12? time + ' PM':
+                              hour > 12 ? '' + hour % 12 + time.slice(2) + ' PM' :
+                              time,
+                readings: fields.slice(-9).map(item=>item.replace(/[^\d.]/g, '')) //regex removes units
             });
         }else{
             let date = new Date(1970, 0, 1, ...time.split(':'));
             date.setSeconds(date.getSeconds() - 1);
 
-            const hours = String(date.getHours()).padStart(2, '0');
-            const minutes = String(date.getMinutes()).padStart(2, '0');
-            const seconds = String(date.getSeconds()).padStart(2, '0');
-
-            const timesub1 = `${hours}:${minutes}:${seconds}`
+            let timesub1 = date.toString().split(' ')[4];
             timeSeen[timesub1] = true;
+
+            //parsing for 12-hour format
+            const hour = parseInt(timesub1.split(':')[0])
+            timesub1 = hour == 0 ? '12'+timesub1.slice(2)+' AM':
+                              hour == 12? timesub1 + ' PM':
+                              hour > 12 ? '' + hour % 12 + timesub1.slice(2) + ' PM' :
+                              timesub1;
+
             dataPoints.push({
                 time: timesub1,
                 readings: fields.slice(-9).map(item=>item.replace(/[^\d.]/g, '')),
@@ -50,24 +56,50 @@ function getData(){
         .catch(error => console.error('Error loading CSV:', error));
 }
 
-function drawChart(){
-    const ctx = document.getElementById('myChart').getContext('2d');
-    (async () => {
-        plotables = await getData();
+let myChart;
 
-        mychart = new Chart(ctx, {
-          type: 'line',
-          data: {
-            labels: plotables.map(item=>item.time).reverse(),
+async function drawChart(index){
+    const ctx = document.getElementById('myChart').getContext('2d');
+    let plotables = await getData();
+
+    if (myChart) {
+        myChart.destroy();
+    }
+
+    myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: plotables.map(item=>item.time),
             datasets: [{
-              label: '# of Votes',
-              data: plotables.map(item=>parseFloat(item.readings[0])).reverse(),
-              borderWidth: 1
+                label: '# of Votes',
+                data: plotables.map(item=>parseFloat(item.readings[index])),
+                borderWidth: 1
             }]
-          },
-          options: {
-            
-          }
-        });
-    })();
+        },
+        options: {
+            animation:false,
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    ticks: {
+                        stepSize:0.1,
+                        maxTicksLimit: 10,
+                    }
+                }
+            }
+        }
+    });
 }
+
+
+let toDraw = 0;
+// Get all divs with the class 'clickable-div'
+const divs = document.querySelectorAll('.sensor-data');
+
+// Loop over each div and attach a click event listener
+divs.forEach((div, index) => {
+  div.addEventListener('click', () => {
+    toDraw = index;
+  });
+});
