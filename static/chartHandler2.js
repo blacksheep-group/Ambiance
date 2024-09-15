@@ -97,7 +97,6 @@ let toDraw = 0;
 // Get all divs with the class 'clickable-div'
 const divs = document.querySelectorAll('.sensor-data');
 
-// Loop over each div and attach a click event listener
 divs.forEach((div, index) => {
   div.addEventListener('click', () => {
     toDraw = index;

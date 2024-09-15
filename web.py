@@ -7,6 +7,10 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
 
+@app.route('/temperature')
+def temperature():
+    return render_template("temperature.html")
+
 @app.route('/sensor_data')
 def get_sensor_data():
     data = sensor.data_dict
