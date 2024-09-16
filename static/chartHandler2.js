@@ -50,7 +50,6 @@ function getData(){
         .then(response => response.text())
         .then(csvData => {
             const parsedData = processData(csvData);
-            //updateChart(parsedData);
            return parsedData;
         })
         .catch(error => console.error('Error loading CSV:', error));
@@ -59,6 +58,12 @@ function getData(){
 let myChart;
 
 async function drawChart(index){
+    const rootStyles = getComputedStyle(document.documentElement);
+
+    const pupGold = rootStyles.getPropertyValue('--pup-gold').trim();
+    const backgroundRed = rootStyles.getPropertyValue('--background-red').trim();
+    const chartGridColor = rootStyles.getPropertyValue('--chart-grid-color').trim();
+
     const ctx = document.getElementById('myChart').getContext('2d');
     let plotables = await getData();
 
@@ -66,26 +71,65 @@ async function drawChart(index){
         myChart.destroy();
     }
 
+    const chartLabel = toDraw == 0? 'Temperature': 'idk';
+
     myChart = new Chart(ctx, {
         type: 'line',
         data: {
             labels: plotables.map(item=>item.time),
             datasets: [{
-                label: '# of Votes',
-                data: plotables.map(item=>parseFloat(item.readings[index])),
-                borderWidth: 1
+                data: plotables.map(item => parseFloat(item.readings[index])),
+                borderWidth: 2,
+                borderColor: pupGold,
+                backgroundColor: `${pupGold}20`,
+                pointBackgroundColor: backgroundRed,
             }]
         },
         options: {
+            title:'none',
+            legend:'none',
             animation:false,
             responsive: true,
             maintainAspectRatio: false,
             scales: {
+                x: {
+                    grid: {
+                        color: '#0005',
+                    },
+                    ticks: {
+                        color: 'black',
+                        font: {
+                            family: 'Nunito'
+                        }
+                    }
+                },
                 y: {
+                    grid:{
+                        color: '#0005'
+                    },
                     ticks: {
                         stepSize:0.1,
                         maxTicksLimit: 10,
+                        color: 'black',
+                        font: {
+                            family: 'Nunito'
+                        }
                     }
+                }
+            },
+            plugins: {
+                title: {
+                    display: true,
+                    text: chartLabel,
+                    font: {
+                        family: 'Nunito',
+                        size: 25,
+                        weight: 'bold'
+                    },
+                    color: 'black',
+                },
+                legend: {
+                    display: false,  // Disable the legend
                 }
             }
         }
@@ -94,7 +138,7 @@ async function drawChart(index){
 
 
 let toDraw = 0;
-// Get all divs with the class 'clickable-div'
+
 const divs = document.querySelectorAll('.sensor-data');
 
 divs.forEach((div, index) => {

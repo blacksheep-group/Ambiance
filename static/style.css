@@ -3,6 +3,7 @@
     --error-red:#cc0000;
     --background-red:#800000;
     --pup-gold:#DBA729;
+    --chart-grid-color:red;
 }
 
 @font-face {
@@ -383,13 +384,24 @@ footer div {
     margin-right: 1%;
 }
 
-#chart-container {
-    position: relative;
+.chart-card {
+    height: 70svh;
+    width: 50svw; 
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    box-sizing: border-box;
+    padding-block: 1svw 3svw;
+    padding-inline: 3svw;
+    border: 1px solid #000;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.3);
+    margin: 0 auto;
+}
+
+.chart-container {
     width: 100%;
     height: 100%;
 }
 
-#myChart {
-    width: 100%;
-    height: 100%;
-}
