@@ -3,6 +3,7 @@
     --error-red:#cc0000;
     --background-red:#800000;
     --pup-gold:#DBA729;
+    --chart-grid-color:red;
 }
 
 @font-face {
@@ -28,48 +29,57 @@
 body{
     margin: 0;
     font-family: 'Arial', sans-serif;
-    background-color: var(--background-white);
+    background-color: white;
 }
 
-header{
+header {
+    width: 100%;
     display: flex;
     background-color: var(--background-red);
-    padding: 10px;
-    display: flex;
+    padding: 10px 0;
     justify-content: space-between;
     align-items: center;
     font-family: "Aoboshi One", serif;
     
 }
-.date{
-    color:rgba(000, 000, 000, 0.75);
-    font-family: "Assistant", sans-serif;
-    font-weight: bold;
-    font-size: 1.3rem;
-    margin-right: auto;
-    margin-left: 7%;
-    margin-top: 20px;
-    padding-bottom: 5px;
-    border-bottom: 2px solid rgba(000, 000, 000, 0.75);
-}
-.title{
+
+.title {
+    width: 20%;
     color: var(--pup-gold);
     font-size: 2.5rem;
     font-weight: bold;
-    margin-left: 2%;
-    
+    margin-left: 1%;
 }
-.settings{
+
+.settings {
+    width: 50%;
     display: flex;
+    justify-content: end;
+    gap: 8px;
+    margin-right: 4%;
     color: white;
     font-family: "Antic", sans-serif;
     font-size: 1.5rem;
-    gap: 8px;
-    margin-right: 2%;
+    
 }
-.settings img{
+
+.date {
+    font-family: Roboto;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: white;
+}
+
+#location {
+    margin-left: 2%;
+}
+
+.settings img {
     width: 24px;
+    margin-left: 2%;
 }
+
+
 main{
     display: flex;
     flex-direction: column;
@@ -113,6 +123,7 @@ main{
     margin-top: 0;
     margin-bottom: 0;
     align-items: center;
+    text-decoration: none;
 }
 
 .sensor-data > .data-container {
@@ -359,9 +370,38 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
+    display: flex;
+    justify-content: space-between;
 }
 footer div {
     font-family: "Antic", sans-serif;
     font-size: 1rem;
     color: white;
 }
+
+.puplogo {
+    width: 24px;
+    margin-right: 1%;
+}
+
+.chart-card {
+    height: 70svh;
+    width: 50svw; 
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    box-sizing: border-box;
+    padding-block: 1svw 3svw;
+    padding-inline: 3svw;
+    border: 1px solid #000;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.3);
+    margin: 0 auto;
+}
+
+.chart-container {
+    width: 100%;
+    height: 100%;
+}
+

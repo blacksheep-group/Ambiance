@@ -12,7 +12,7 @@ function formatTimeDate(timedate) {
     const month = monthNames[timedate.getMonth()];
     const day = String(timedate.getDate());
     let hours = timedate.getHours();
-    const minutes = String(timedate.getMinutes());
+    let minutes = String(timedate.getMinutes()).padStart(2, '0'); //shortened time parsing
     let ampm = "AM";
     if (hours >= 12) {
         ampm = "PM";
@@ -124,5 +124,8 @@ function updateSensorValues() {
 }
 
 
-  updateSensorValues(); 
-  setInterval(updateSensorValues, 1000);
+updateSensorValues(); 
+setInterval(()=>{
+    updateSensorValues();
+    drawChart();
+}, 1000);

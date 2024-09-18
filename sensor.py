@@ -67,4 +67,4 @@ def to_csv():
 
 PORT = get_port()
 threading.Thread(target=read_sensor_data, daemon=True).start()
-threading.Thread(target=to_csv, daemon=True).start()
+#threading.Thread(target=to_csv, daemon=True).start()
