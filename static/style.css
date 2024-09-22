@@ -97,10 +97,10 @@ main{
     font-size: 0.8rem;
     color: var(--error-red)
 }
-.content-container{
+
+.data-container {
     display: flex;
-    gap: 10px;
-    flex-direction: row;
+    flex-direction: column; /* Stack label and value */
 }
 .sensor-container{
     display: grid;
@@ -129,32 +129,33 @@ main{
     text-decoration: none;
 }
 
-.data{
+
+.data {
     display: flex;
+    align-items: center; /* Vertically centers the logo and the value */
 }
 
 .sensor-data img {
-    height: 70px;
+    height: 70px; /* Adjust height as needed */
     width: auto;
+    margin-right: 10px; /* Add space between the logo and the value */
 }
-.data-label{
+
+.data-label {
     color: black;
     font-family: "Nunito", sans-serif;
     font-size: 20px;
     font-weight: bold;
-    margin-top: 20px;
-}  
-.data-point{
-    height: auto;
+    margin-bottom: 2px; /* Space between label and value */
+    height: 20px; /* Fixed height to prevent shifting */
+}
+.data-point {
     color: green;
     font-family: "Nunito", sans-serif;
     font-weight: bolder;
     font-size: 30px;
-    margin-left: 0;
-    margin-bottom: 20px;
-    width: max-content;
+    margin: 10; /* Remove bottom margin to prevent shifting */
 }
-
 .meter-container {
     height: 450px;
     width: 300px;
