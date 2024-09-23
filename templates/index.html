@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
     <link rel="shortcut icon" href="{{ url_for('static', filename='assets/pup-logo.svg') }}">
+    <!--script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script-->
     <script type="text/javascript" src="{{url_for('static', filename='script.js')}}" defer></script>
-    <script type="text/javascript" src="{{url_for('static', filename='date-time.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='chartHandler.js')}}" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <!--script type="text/javascript" src="{{url_for('static', filename='date-time.js')}}"></script-->
     <title>Ambiance</title>
 </head>
 
@@ -19,22 +22,24 @@
             <img src="{{ url_for('static', filename='assets/settings.svg') }}">
         </div>      
     </header>
-    <main>   
+    <main>  
+        
         <div class="error-message" id="errorValue">{{ exception }}</div> 
         <div class="content-container">
             <div class="sensor-container">
-                <div class="sensor-data">
-                        <div class="data">
+                <a class="sensor-data" href="{{url_for('graph', index=0)}}">
+                    <div class="data">
+                        <div class="container-label">
                             <img src="{{ url_for('static', filename='assets/temperature.svg') }}">
-                            <div class="data-container">
-                                <div class="data-label">TEMPERATURE</div> 
-                                <div id="temperatureValue" class="data-point">{{ temperature }}</div>
-                            </div>
+                            
                         </div>
-                        <div class="graph">
+                        <div class="data-container">
+                            <div class="data-label">TEMPERATURE</div> 
+                            <div id="temperatureValue" class="data-point">{{ temperature }}</div>
                         </div>
-                </div>
-                <div class="sensor-data">
+                    </div>
+                </a>
+                <a class="sensor-data" href="{{url_for('graph', index=1)}}">
                         <div class="data">
                             <img src="{{ url_for('static', filename='assets/pressure.svg') }}">
                             <div class="data-container">
@@ -44,8 +49,8 @@
                         </div>
                         <div class="graph">
                         </div>
-                </div>
-                <div class="sensor-data">
+                </a>
+                <a class="sensor-data" href="{{url_for('graph', index=2)}}">
                         <div class="data">
                             <img src="{{ url_for('static', filename='assets/humidity.svg') }}">
                             <div class="data-container">
@@ -55,8 +60,8 @@
                         </div>
                         <div class="graph">
                         </div>
-                </div>
-                <div class="sensor-data">
+                </a>
+                <a class="sensor-data" href="{{url_for('graph', index=3)}}">
                         <div class="data">
                             <img src="{{ url_for('static', filename='assets/pm1.svg') }}">
                             <div class="data-container">
@@ -66,8 +71,8 @@
                         </div>
                         <div class="graph">
                         </div>
-                </div>
-                <div class="sensor-data">
+                </a>
+                <a class="sensor-data" href="{{url_for('graph', index=4)}}">
                         <div class="data">
                             <img src="{{ url_for('static', filename='assets/pm2.svg') }}">
                             <div class="data-container">
@@ -77,8 +82,8 @@
                         </div>
                         <div class="graph">
                         </div>
-                </div>
-                <div class="sensor-data">
+                </a>
+                <a class="sensor-data" href="{{url_for('graph', index=5)}}">
                         <div class="data">
                             <img src="{{ url_for('static', filename='assets/pm10.svg') }}">
                             <div class="data-container">
@@ -88,8 +93,8 @@
                         </div>
                         <div class="graph">
                         </div>
-                </div>
-                <div class="sensor-data">
+                </a>
+                <a class="sensor-data" href="{{url_for('graph', index=6)}}">
                         <div class="data">
                             <img src="{{ url_for('static', filename='assets/eCO2.svg') }}">
                             <div class="data-container">
@@ -99,8 +104,8 @@
                         </div>
                         <div class="graph">
                         </div>
-                </div>
-                <div class="sensor-data">
+                </a>
+                <a class="sensor-data" href="{{url_for('graph', index=7)}}">
                         <div class="data">
                             <img src="{{ url_for('static', filename='assets/gas.svg') }}">
                             <div class="data-container">
@@ -110,8 +115,8 @@
                         </div>
                         <div class="graph">
                         </div>
-                </div>
-                <div class="sensor-data">
+                </a>
+                <a class="sensor-data" href="{{url_for('graph', index=8)}}">
                         <div class="data">
                             <img src="{{ url_for('static', filename='assets/TVOC.svg') }}">
                             <div class="data-container">
@@ -121,7 +126,7 @@
                         </div>
                         <div class="graph">
                         </div>
-                </div>                 
+                </a>                 
             </div>
            
         </div>
