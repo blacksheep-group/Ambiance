@@ -41,7 +41,7 @@ async function drawChart(index){
     if (myChart) {
         myChart.destroy();
     }
-    const titles=['Temperature','Pressure','Humidity','PM1','PM2','PM10','ECO2','Gas','TVOC']
+    const titles=['TEMPERATURE','PRESSURE','HUMIDITY','PM1','PM2','PM10','ECO2','GAS','TVOC']
     let sensorArr = dataPoints.map(item => parseFloat(item.sensor[index]));
     let sensorVal = Math.round(sensorArr[sensorArr.length-1]);
     let minValY = sensorVal - 3;
