@@ -87,7 +87,7 @@ main{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: calc(100vh - 80px);
+    height: calc(100vh - 120px);
 }
 .error-message{
     margin-top: 15px;
@@ -97,14 +97,16 @@ main{
     font-size: 0.8rem;
     color: var(--error-red)
 }
-
+.data{
+    display: flex;
+    padding: 24px;
+}
 .data-container {
     display: flex;
-    flex-direction: column; /* Stack label and value */
+    flex-direction: column; 
 }
 .sensor-container{
     display: grid;
-    width: 100%;
     grid-template-columns: 300px 300px 300px;
     justify-content: center; 
     align-items: center;
@@ -118,7 +120,6 @@ main{
     display: flex;
     flex-direction: row;
     box-sizing: border-box;
-    padding: 15px;
     border: 1px solid #000;
     border-radius: 10px;
     background-color: white;
@@ -130,12 +131,15 @@ main{
 }
 
 
+<<<<<<< HEAD
 .data {
     display: flex;
     align-items: center; /* Vertically centers the logo and the value */
     justify-content: flex-start; /* Align content to the start of the container */
 }
 
+=======
+>>>>>>> a30ca279b4b765b66145238d7b3cb4bbb797ba18
 .sensor-data img {
     height: 70px; /* Adjust height as needed */
     width: auto;
@@ -155,6 +159,7 @@ main{
     color: green;
     font-family: "Nunito", sans-serif;
     font-weight: bolder;
+<<<<<<< HEAD
     font-size: 30px;
     margin: 0; /* Remove any margins */
     white-space: nowrap; /* Prevent value from wrapping */
@@ -162,6 +167,10 @@ main{
 }
 .data-point:empty {
     display: none; /* Hide if there's no value */
+=======
+    font-size: 1.6rem;
+    width: 180px;
+>>>>>>> a30ca279b4b765b66145238d7b3cb4bbb797ba18
 }
 .meter-container {
     height: 450px;
