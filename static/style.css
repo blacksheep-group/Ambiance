@@ -133,6 +133,7 @@ main{
 .data {
     display: flex;
     align-items: center; /* Vertically centers the logo and the value */
+    justify-content: flex-start; /* Align content to the start of the container */
 }
 
 .sensor-data img {
@@ -146,15 +147,21 @@ main{
     font-family: "Nunito", sans-serif;
     font-size: 20px;
     font-weight: bold;
-    margin-bottom: 2px; /* Space between label and value */
-    height: 20px; /* Fixed height to prevent shifting */
+    margin-bottom: 0; /* Remove any bottom margin */
+    height: auto; /* Allow label to take the necessary height */
+    margin-right: 10px; /* Space between label and value */
 }
 .data-point {
     color: green;
     font-family: "Nunito", sans-serif;
     font-weight: bolder;
     font-size: 30px;
-    margin: 10; /* Remove bottom margin to prevent shifting */
+    margin: 0; /* Remove any margins */
+    white-space: nowrap; /* Prevent value from wrapping */
+    display: inline-block; /* Keep the value inline with the text */
+}
+.data-point:empty {
+    display: none; /* Hide if there's no value */
 }
 .meter-container {
     height: 450px;
