@@ -42,6 +42,11 @@ async function drawChart(index){
         myChart.destroy();
     }
     const titles=['Temperature','Pressure','Humidity','PM1','PM2','PM10','ECO2','Gas','TVOC']
+    let sensorArr = dataPoints.map(item => parseFloat(item.sensor[index]));
+    let sensorVal = Math.round(sensorArr[sensorArr.length-1]);
+    let minValY = sensorVal - 3;
+    let maxValY = sensorVal + 2;
+    console.log(sensorVal)
     myChart = new Chart(ctx, {
         type: 'line',
         data: {
@@ -83,11 +88,14 @@ async function drawChart(index){
                     }
                 },   
                 y: {
-                    min: 20, 
-                    max: 34, 
+                    min: minValY,
+                    max: maxValY,
+                    step: 1,
                     ticks: {
                         callback: function(value) {
-                            return value.toFixed(0); 
+                            let base = Math.round(value);
+                            let tickVal = Array.from({ length: 7 }, (_, i) => base - 2 + i);
+                            return tickVal.includes(value) ? value : '';
                         }
                     }
                 }

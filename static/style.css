@@ -130,11 +130,6 @@ main{
 }
 
 
-.data {
-    display: flex;
-    align-items: center; /* Vertically centers the logo and the value */
-}
-
 .sensor-data img {
     height: 70px; /* Adjust height as needed */
     width: auto;
