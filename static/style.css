@@ -400,6 +400,7 @@ footer div {
 }
 
 .chart-card {
+    flex-flow: column  ;
     height: 70svh;
     width: 50svw; 
     display: flex;
@@ -420,8 +421,11 @@ footer div {
     height: 100%;
 }
 
+#chart_label{
     display: flex;
     align-items: center;
+}
+
 #label_text{
     font-size: 25px;
     font-family: "Nunito";
