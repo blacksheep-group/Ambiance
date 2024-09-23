@@ -420,4 +420,15 @@ footer div {
     height: 100%;
 }
 
-/**/
+    display: flex;
+    align-items: center;
+#label_text{
+    font-size: 25px;
+    font-family: "Nunito";
+    font-weight: bold;
+    display: flex;
+}
+
+#chart_logo{
+    height :50px;
+}
