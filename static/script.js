@@ -127,5 +127,5 @@ function updateSensorValues() {
 updateSensorValues(); 
 setInterval(()=>{
     updateSensorValues();
-    drawChart();
+    drawChart(index);
 }, 1000);

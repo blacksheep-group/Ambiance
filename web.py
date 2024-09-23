@@ -7,9 +7,9 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
 
-@app.route('/graph')
-def temperature():
-    return render_template("graph.html")
+@app.route('/graph/<index>')
+def graph(index):
+    return render_template("graph.html", index=index)
 
 @app.route('/sensor_data')
 def get_sensor_data():

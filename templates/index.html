@@ -27,7 +27,7 @@
         <div class="error-message" id="errorValue">{{ exception }}</div> 
         <div class="content-container">
             <div class="sensor-container">
-                <a class="sensor-data" href="{{url_for('temperature')}}">
+                <a class="sensor-data" href="{{url_for('graph', index=0)}}">
                     <div class="data">
                         <div class="container-label">
                             <img src="{{ url_for('static', filename='assets/temperature.svg') }}">
@@ -39,7 +39,7 @@
                         </div>
                     </div>
                 </a>
-                <div class="sensor-data">
+                <a class="sensor-data" href="{{url_for('graph', index=1)}}">
                         <div class="data">
                             <img src="{{ url_for('static', filename='assets/pressure.svg') }}">
                             <div class="data-container">
@@ -49,8 +49,8 @@
                         </div>
                         <div class="graph">
                         </div>
-                </div>
-                <div class="sensor-data">
+                </a>
+                <a class="sensor-data" href="{{url_for('graph', index=2)}}">
                         <div class="data">
                             <img src="{{ url_for('static', filename='assets/humidity.svg') }}">
                             <div class="data-container">
@@ -60,8 +60,8 @@
                         </div>
                         <div class="graph">
                         </div>
-                </div>
-                <div class="sensor-data">
+                </a>
+                <a class="sensor-data" href="{{url_for('graph', index=3)}}">
                         <div class="data">
                             <img src="{{ url_for('static', filename='assets/pm1.svg') }}">
                             <div class="data-container">
@@ -71,8 +71,8 @@
                         </div>
                         <div class="graph">
                         </div>
-                </div>
-                <div class="sensor-data">
+                </a>
+                <a class="sensor-data" href="{{url_for('graph', index=4)}}">
                         <div class="data">
                             <img src="{{ url_for('static', filename='assets/pm2.svg') }}">
                             <div class="data-container">
@@ -82,8 +82,8 @@
                         </div>
                         <div class="graph">
                         </div>
-                </div>
-                <div class="sensor-data">
+                </a>
+                <a class="sensor-data" href="{{url_for('graph', index=5)}}">
                         <div class="data">
                             <img src="{{ url_for('static', filename='assets/pm10.svg') }}">
                             <div class="data-container">
@@ -93,8 +93,8 @@
                         </div>
                         <div class="graph">
                         </div>
-                </div>
-                <div class="sensor-data">
+                </a>
+                <a class="sensor-data" href="{{url_for('graph', index=6)}}">
                         <div class="data">
                             <img src="{{ url_for('static', filename='assets/eCO2.svg') }}">
                             <div class="data-container">
@@ -104,8 +104,8 @@
                         </div>
                         <div class="graph">
                         </div>
-                </div>
-                <div class="sensor-data">
+                </a>
+                <a class="sensor-data" href="{{url_for('graph', index=7)}}">
                         <div class="data">
                             <img src="{{ url_for('static', filename='assets/gas.svg') }}">
                             <div class="data-container">
@@ -115,8 +115,8 @@
                         </div>
                         <div class="graph">
                         </div>
-                </div>
-                <div class="sensor-data">
+                </a>
+                <a class="sensor-data" href="{{url_for('graph', index=8)}}">
                         <div class="data">
                             <img src="{{ url_for('static', filename='assets/TVOC.svg') }}">
                             <div class="data-container">
@@ -126,7 +126,7 @@
                         </div>
                         <div class="graph">
                         </div>
-                </div>                 
+                </a>                 
             </div>
            
         </div>
