@@ -12,9 +12,17 @@
 .navbar{
     background-color: var(--background-red);
     font-family: "Aoboshi One", serif;
+    transition: opacity 0.3s ease; 
+    text-decoration: none; 
 }
 .title{
     color: var(--pup-gold) !important;
+    transition: opacity 0.3s ease; 
+    text-decoration: none; 
+}
+.title:hover{
+    opacity: 0.7; 
+    text-decoration: none;
 }
 .error-message{
     color: var(--error-red)
