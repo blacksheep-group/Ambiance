@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-100">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/graph.css')}}">
     <link rel="shortcut icon" href="{{ url_for('static', filename='assets/pup-logo.svg') }}">
     <!--script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script-->
-    <script type="text/javascript" src="{{url_for('static', filename='script.js')}}" defer></script>
-    <script type="text/javascript" src="{{url_for('static', filename='chartHandler.js')}}" defer></script>
+    <script type="text/javascript" src="{{url_for('static', filename='js/script.js')}}" defer></script>
+    <script type="text/javascript" src="{{url_for('static', filename='js/chartHandler.js')}}" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
     <!--script type="text/javascript" src="{{url_for('static', filename='date-time.js')}}"></script-->
     <script type="text/javascript">
             index = {{index}}
@@ -16,29 +18,32 @@
     <title>Ambiance</title>
 </head>
 
-<body>
-    <header>
-        <div class="title">AMBIANCE</div>
-        <div class="settings"> 
-            <div id="timedate" class="date">{{ now }}</div>
-            <div id="location">{{ location }}  |</div>
-            <img src="{{ url_for('static', filename='assets/settings.svg') }}">
-        </div>      
+<body class="d-flex flex-column h-100">
+    <header class="navbar">
+        <div class="title h1">AMBIANCE</div>
+        <div class="right-nav d-flex align-items-center"> 
+            <div class="h6 text-white d-flex align-items-center mb-0 me-2">
+                <div id="timedate" class="mr-2">{{ no }}</div>
+               <!-- <div id="location">{{ location }} |</div>-->
+            </div>    
+            <img src="{{ url_for('static', filename='assets/settings.svg') }}" alt="Settings" style="height: 24px;">
+        </div>
+        </div>
     </header>
     <main>  
-        <div class="error-message" id="errorValue">{{ exception }}</div> 
+        <div class="error-message my-4 text-center" id="errorValue">{{ exception }}</div> 
         <div class="chart-card">
-            <div id="chart_label">
-                <img id="chart_logo" src="{{ url_for('static', filename='assets/settings.svg') }}">
-                <div id="label_text"></div>
+            <div id="chart-label" class="d-flex flex-row justify-content-center align-items-center mb-2">
+                <img id="chart_logo" src="{{ url_for('static', filename='assets/settings.svg') }}" style="height: 40px;" alt="Chart Logo">
+                <div class="h4" id="label_text">Your Label Text</div>
             </div>
             <div class="chart-container">
                 <canvas id="myChart"></canvas>
             </div>
         </div>
     </main>
-    <footer>
-        <div>CREATED BY: PUP-HYGEARS BATCH 2023-2024</div>
+    <footer class=" navbar mt-auto text-white">
+        <div>PUP Hygears Batch 2023-2024</div>
         <img 
         class="puplogo"
         src="{{ url_for('static', filename='assets/pup-logo.svg') }}"

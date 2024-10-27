@@ -13,7 +13,7 @@ CSV_FILE = 'data.csv'
 
 data_dict = {
     'exception': '',
-    'location': 'NO LOCATION',
+    'location': ' No Location',
     'date': '',
     'temperature': '0.00',
     'pressure': '0.00',
