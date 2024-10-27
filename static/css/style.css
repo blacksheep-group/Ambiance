@@ -1,0 +1,76 @@
+:root{
+    --background-white: #f4f4f4;
+    --error-red:#cc0000;
+    --background-red:#800000;
+    --pup-gold:#DBA729;
+    --chart-grid-color:red;
+}
+@font-face{
+    font-family: "Aoboshi One";
+    src: url("../../static/fonts/AoboshiOne-Regular.ttf");
+}
+.navbar{
+    background-color: var(--background-red);
+    font-family: "Aoboshi One", serif;
+}
+.title{
+    color: var(--pup-gold) !important;
+}
+.error-message{
+    color: var(--error-red)
+}
+.data{
+    display: flex;
+    padding: 1.5rem;
+    gap: 1rem;
+}
+.data-container {
+    display: flex;
+    flex-direction: column; 
+}
+.sensor-container{
+    width: 99%;
+}
+.sensor-data{
+    box-sizing: border-box;
+    border: 1px solid #000;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.3);
+}
+.sensor-data img {
+    height: 64px; /* Adjust height as needed */
+    width: auto;
+}
+
+.data-label {
+    color: black;
+    font-family: "Nunito", sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 2px; /* Space between label and value */
+    height: 20px; /* Fixed height to prevent shifting */
+}
+.data-point {
+    color: green;
+    font-family: "Nunito", sans-serif;
+    font-weight: bolder;
+    font-size: 1.6rem;
+    width: 180px;
+}
+footer {
+    display: block;
+    unicode-bidi: isolate;
+}
+.sensor-data {
+    transition: opacity 0.3s ease; 
+    text-decoration: none; 
+}
+
+.sensor-data:hover {
+    opacity: 0.7; 
+    text-decoration: none;
+}
+.puplogo {
+    width: 56px;
+}

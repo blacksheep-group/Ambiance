@@ -1,45 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-100">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}">
     <link rel="shortcut icon" href="{{ url_for('static', filename='assets/pup-logo.svg') }}">
     <!--script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script-->
-    <script type="text/javascript" src="{{url_for('static', filename='script.js')}}" defer></script>
-    <script type="text/javascript" src="{{url_for('static', filename='chartHandler.js')}}" defer></script>
+    <script type="text/javascript" src="{{url_for('static', filename='js/script.js')}}" defer></script>
+    <script type="text/javascript" src="{{url_for('static', filename='js/chartHandler.js')}}" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
     <!--script type="text/javascript" src="{{url_for('static', filename='date-time.js')}}"></script-->
     <title>Ambiance</title>
 </head>
 
-<body>
-    <header>
-        <div class="title">AMBIANCE</div>
-        <div class="settings"> 
-            <div id="timedate" class="date">{{ now }}</div>
-            <div id="location">{{ location }}  |</div>
-            <img src="{{ url_for('static', filename='assets/settings.svg') }}">
-        </div>      
+<body class="d-flex flex-column h-100">
+    <header class="navbar">
+        <div class="title h1">AMBIANCE</div>
+        <div class="right-nav d-flex align-items-center"> 
+            <div class="h6 text-white d-flex align-items-center mb-0 me-2">
+                <div id="timedate" class="mr-2">{{ no }}</div>
+               <!-- <div id="location">{{ location }} |</div>-->
+            </div>    
+            <img src="{{ url_for('static', filename='assets/settings.svg') }}" alt="Settings" style="height: 24px;">
+        </div>
+        </div>
     </header>
     <main>  
-        
-        <div class="error-message" id="errorValue">{{ exception }}</div> 
-        <div class="content-container">
+        <div class="error-message my-4 text-center" id="errorValue">{{ exception }}</div> 
+
             <div class="sensor-container">
-                <a class="sensor-data" href="{{url_for('graph', index=0)}}">
-                    <div class="data">
-                        <div class="container-label">
+                <div class="row my-4 justify-content-center">
+                    <a class="sensor-data col-3 mr-4" href="{{url_for('graph', index=0)}}">
+                        <div class="data">
                             <img src="{{ url_for('static', filename='assets/temperature.svg') }}">
-                            
+                            <div class="data-container">
+                                <div class="data-label">TEMPERATURE</div> 
+                                <div id="temperatureValue" class="data-point">{{ temperature }}</div>
+                            </div>
                         </div>
-                        <div class="data-container">
-                            <div class="data-label">TEMPERATURE</div> 
-                            <div id="temperatureValue" class="data-point">{{ temperature }}</div>
-                        </div>
-                    </div>
-                </a>
-                <a class="sensor-data" href="{{url_for('graph', index=1)}}">
+                    </a>
+                    <a class="sensor-data col-3 mr-4" href="{{url_for('graph', index=1)}}">
                         <div class="data">
                             <img src="{{ url_for('static', filename='assets/pressure.svg') }}">
                             <div class="data-container">
@@ -47,10 +49,8 @@
                                 <div id="pressureValue" class= "data-point">{{ pressure }}</div>
                             </div>
                         </div>
-                        <div class="graph">
-                        </div>
-                </a>
-                <a class="sensor-data" href="{{url_for('graph', index=2)}}">
+                    </a>
+                    <a class="sensor-data col-3" href="{{url_for('graph', index=2)}}">
                         <div class="data">
                             <img src="{{ url_for('static', filename='assets/humidity.svg') }}">
                             <div class="data-container">
@@ -58,10 +58,10 @@
                                 <div id="humidityValue" class="data-point">{{ humidity }}</div>
                             </div>
                         </div>
-                        <div class="graph">
-                        </div>
-                </a>
-                <a class="sensor-data" href="{{url_for('graph', index=3)}}">
+                    </a>
+                </div>
+                <div class="row my-4 justify-content-center">
+                    <a class="sensor-data col-3 mr-4" href="{{url_for('graph', index=3)}}">
                         <div class="data">
                             <img src="{{ url_for('static', filename='assets/pm1.svg') }}">
                             <div class="data-container">
@@ -69,10 +69,8 @@
                                 <div id="pm1Value" class="data-point">{{ pm1 }}</div>
                             </div>
                         </div>
-                        <div class="graph">
-                        </div>
-                </a>
-                <a class="sensor-data" href="{{url_for('graph', index=4)}}">
+                    </a>
+                    <a class="sensor-data col-3 mr-4" href="{{url_for('graph', index=4)}}">
                         <div class="data">
                             <img src="{{ url_for('static', filename='assets/pm2.svg') }}">
                             <div class="data-container">
@@ -80,10 +78,8 @@
                                 <div id="pm2Value" class="data-point">{{ pm2 }}</div>
                             </div>
                         </div>
-                        <div class="graph">
-                        </div>
-                </a>
-                <a class="sensor-data" href="{{url_for('graph', index=5)}}">
+                    </a>
+                    <a class="sensor-data col-3" href="{{url_for('graph', index=5)}}">
                         <div class="data">
                             <img src="{{ url_for('static', filename='assets/pm10.svg') }}">
                             <div class="data-container">
@@ -91,10 +87,10 @@
                                 <div id="pm10Value" class="data-point">{{ pm10 }}</div>
                             </div>
                         </div>
-                        <div class="graph">
-                        </div>
-                </a>
-                <a class="sensor-data" href="{{url_for('graph', index=6)}}">
+                    </a>
+                </div>
+                <div class="row justify-content-center">
+                    <a class="sensor-data col-3 mr-4" href="{{url_for('graph', index=6)}}">
                         <div class="data">
                             <img src="{{ url_for('static', filename='assets/eCO2.svg') }}">
                             <div class="data-container">
@@ -102,10 +98,8 @@
                                 <div id="eco2Value" class="data-point">{{ eco2 }}</div>
                             </div>
                         </div>
-                        <div class="graph">
-                        </div>
-                </a>
-                <a class="sensor-data" href="{{url_for('graph', index=7)}}">
+                    </a>
+                    <a class="sensor-data col-3 mr-4" href="{{url_for('graph', index=7)}}">
                         <div class="data">
                             <img src="{{ url_for('static', filename='assets/gas.svg') }}">
                             <div class="data-container">
@@ -113,10 +107,8 @@
                                 <div id="gasValue" class="data-point">{{ gas }}</div>
                             </div>
                         </div>
-                        <div class="graph">
-                        </div>
-                </a>
-                <a class="sensor-data" href="{{url_for('graph', index=8)}}">
+                    </a>
+                    <a class="sensor-data col-3" href="{{url_for('graph', index=8)}}">
                         <div class="data">
                             <img src="{{ url_for('static', filename='assets/TVOC.svg') }}">
                             <div class="data-container">
@@ -124,20 +116,19 @@
                                 <div id="tvocValue" class="data-point">{{ tvoc }}</div>
                             </div>
                         </div>
-                        <div class="graph">
-                        </div>
-                </a>                 
+                    </a>
+                </div>                 
             </div>
-           
         </div>
         
     </main>
-    <footer>
-        <div>CREATED BY: PUP-HYGEARS BATCH 2023-2024</div>
-        <img 
-        class="puplogo"
-        src="{{ url_for('static', filename='assets/pup-logo.svg') }}"
-        alt="PUP Logo">
-    </footer>
+
 </body>
+<footer class=" navbar mt-auto text-white">
+    <div>PUP Hygears Batch 2023-2024</div>
+    <img 
+    class="puplogo"
+    src="{{ url_for('static', filename='assets/pup-logo.svg') }}"
+    alt="PUP Logo">
+</footer>
 </html>

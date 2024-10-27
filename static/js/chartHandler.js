@@ -42,6 +42,8 @@ async function drawChart(index){
         myChart.destroy();
     }
     const titles=['TEMPERATURE','PRESSURE','HUMIDITY','PM1','PM2','PM10','ECO2','GAS','TVOC']
+    const labelText = document.querySelector("#label_text");
+    labelText.textContent = titles[index];
     let sensorArr = dataPoints.map(item => parseFloat(item.sensor[index]));
     let sensorVal = Math.round(sensorArr[sensorArr.length-1]);
     let minValY = sensorVal - 3;
@@ -63,20 +65,6 @@ async function drawChart(index){
                 legend: {
                     display: false 
                 },
-                title: {
-                    display: true,
-                    text: titles[index],
-                    font: {
-                        family:'Nunito',
-                        size: 24,
-                        weight: 'bold'
-                    },
-                    color: '#000',
-                    padding: {
-                        top: 10,
-                        bottom: 10
-                    }
-                }
             },
             animation: false,
             responsive: true,

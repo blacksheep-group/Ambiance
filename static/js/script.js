@@ -1,13 +1,8 @@
-function setZoom() {
-	document.body.style.zoom = ""+window.innerHeight/7.3+"%";
-}
-window.onload = setZoom;
-
 function formatTimeDate(timedate) {
     const year = timedate.getFullYear();
     const monthNames = [
-        "JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE",
-        "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
     ];
     const month = monthNames[timedate.getMonth()];
     const day = String(timedate.getDate());
@@ -22,13 +17,13 @@ function formatTimeDate(timedate) {
         hours = 12; 
     }
 
-    return `${hours}:${minutes} ${ampm} | ${month} ${day} ${year}`;
+    return `${hours}:${minutes} ${ampm} | ${month} ${day}, ${year}`;
 }
 
 function updateTimeDate() {
     const now = new Date();
     const formattedTimeDate = formatTimeDate(now);
-    document.getElementById("timedate").textContent = formattedTimeDate;
+    document.getElementById("timedate").textContent = `${formattedTimeDate} `;
 }
 
 updateTimeDate();
@@ -106,6 +101,7 @@ function updateSensorValues() {
             } else {
                 document.getElementById("errorValue").hidden = false;
                 document.getElementById("errorValue").textContent = `${error_msg}${data.exception}`;
+                document.getElementById("location").textContent = `${data.location} |`;
             }
         })
         .catch(error => {

@@ -31,7 +31,9 @@ void loop() {
   if (packetSize) {
     while (LoRa.available()) {
       String LoRaData = LoRa.readString();
-      Serial.println(LoRaData); 
+      Serial.println(LoRaData);
+      Serial.println("pota"); 
+      
     }
    }
 }
